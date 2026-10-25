@@ -1,0 +1,130 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Typecheck, bundle, screenshots
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: |
+          mkdir -p ci
+          npm install --no-audit --no-fund > ci/install.txt 2>&1 || (tail -80 ci/install.txt; exit 1)
+          npx expo install --fix > ci/fix.txt 2>&1 || true
+          npx expo install --check > ci/check-versions.txt 2>&1 || true
+      - name: Typecheck
+        id: tsc
+        run: if npx tsc --noEmit > ci/tsc.txt 2>&1; then echo "code=0"; else echo "code=1"; fi >> "$GITHUB_OUTPUT"
+      - name: Bundle for Android and iOS
+        id: bundle
+        run: if npx expo export --platform android --platform ios --output-dir dist-native > ci/export-native.txt 2>&1; then echo "code=0"; else echo "code=1"; fi >> "$GITHUB_OUTPUT"
+      - name: Bundle for web
+        id: web
+        run: if npx expo export --platform web --output-dir dist-web > ci/export-web.txt 2>&1; then echo "code=0"; else echo "code=1"; fi >> "$GITHUB_OUTPUT"
+      - name: Screenshots
+        if: steps.web.outputs.code == '0'
+        continue-on-error: true
+        run: |
+          pip install playwright==1.49.1 > /dev/null
+          python -m playwright install --with-deps chromium > /dev/null 2>&1
+          python .github/scripts/shots.py dist-web ci/shots > ci/shots.txt 2>&1 || true
+      - name: Publish results
+        if: always()
+        run: |
+          cp package.json ci/package.json; cp package-lock.json ci/package-lock.json 2>/dev/null || true
+          echo "tsc=${{ steps.tsc.outputs.code }} bundle=${{ steps.bundle.outputs.code }} web=${{ steps.web.outputs.code }} commit=${{ github.sha }}" > ci/status.txt
+          cd ci && git init -q && git checkout -q -b ci-out && git add -A
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "ci ${{ github.sha }}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-out
+      - name: Fail on errors
+        if: steps.tsc.outputs.code != '0' || steps.bundle.outputs.code != '0'
+        run: exit 1
+
+  android:
+    name: Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npx expo install --fix || true
+      - name: Prebuild
+        run: npx expo prebuild --platform android --no-install
+      - name: Build release APK
+        run: |
+          set -o pipefail
+          cd android
+          ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=arm64-v8a,armeabi-v7a 2>&1 | tee ../android-build.log
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: selah-android
+          path: android/app/build/outputs/apk/release/*.apk
+      - name: Publish preview release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp android/app/build/outputs/apk/release/app-release.apk Selah.apk
+          gh release delete android-preview --yes --cleanup-tag || true
+          gh release create android-preview Selah.apk --prerelease --title "Android preview" --notes "Latest build from ${{ github.sha }}. Install Selah.apk on an Android phone (allow installs from your browser when asked)."
+      - name: Publish log
+        if: always()
+        run: |
+          mkdir -p /tmp/log && cd /tmp/log
+          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:|e: |FAILURE|What went wrong|Error:" -A4 "$GITHUB_WORKSPACE/android-build.log" | head -300; echo "== tail =="; tail -120 "$GITHUB_WORKSPACE/android-build.log"; } > android.txt 2>/dev/null || echo "no log" > android.txt
+          git init -q && git checkout -q -b ci-out-android && git add -A
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "android ${{ github.sha }}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-out-android
+
+  ios:
+    name: iOS simulator build
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund
+          npx expo install --fix || true
+      - name: Prebuild
+        run: npx expo prebuild --platform ios
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild -workspace ios/Selah.xcworkspace -scheme Selah -configuration Release -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build 2>&1 | tee ios-build.log | grep -E "error:|BUILD (SUCCEEDED|FAILED)" || true
+          grep -q "BUILD SUCCEEDED" ios-build.log
+      - name: Publish log
+        if: always()
+        run: |
+          mkdir -p /tmp/log && cd /tmp/log
+          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:" "$GITHUB_WORKSPACE/ios-build.log" | sort -u | head -200; echo "== tail =="; tail -60 "$GITHUB_WORKSPACE/ios-build.log"; } > ios.txt 2>/dev/null || echo "no log" > ios.txt
+          git init -q && git checkout -q -b ci-out-ios && git add -A
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "ios ${{ github.sha }}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-out-ios

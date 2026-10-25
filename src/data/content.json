@@ -1,0 +1,1949 @@
+{
+ "THEMES": [
+  "Faith",
+  "Prayer",
+  "Protection",
+  "Peace",
+  "Strength",
+  "Love",
+  "Gratitude",
+  "Wisdom",
+  "Healing",
+  "Provision",
+  "Hope",
+  "Renewal"
+ ],
+ "BOOKS": [
+  "Genesis",
+  "Exodus",
+  "Leviticus",
+  "Numbers",
+  "Deuteronomy",
+  "Joshua",
+  "Judges",
+  "Ruth",
+  "1 Samuel",
+  "2 Samuel",
+  "1 Kings",
+  "2 Kings",
+  "1 Chronicles",
+  "2 Chronicles",
+  "Ezra",
+  "Nehemiah",
+  "Esther",
+  "Job",
+  "Psalms",
+  "Proverbs",
+  "Ecclesiastes",
+  "Song of Solomon",
+  "Isaiah",
+  "Jeremiah",
+  "Lamentations",
+  "Ezekiel",
+  "Daniel",
+  "Hosea",
+  "Joel",
+  "Amos",
+  "Obadiah",
+  "Jonah",
+  "Micah",
+  "Nahum",
+  "Habakkuk",
+  "Zephaniah",
+  "Haggai",
+  "Zechariah",
+  "Malachi",
+  "Matthew",
+  "Mark",
+  "Luke",
+  "John",
+  "Acts",
+  "Romans",
+  "1 Corinthians",
+  "2 Corinthians",
+  "Galatians",
+  "Ephesians",
+  "Philippians",
+  "Colossians",
+  "1 Thessalonians",
+  "2 Thessalonians",
+  "1 Timothy",
+  "2 Timothy",
+  "Titus",
+  "Philemon",
+  "Hebrews",
+  "James",
+  "1 Peter",
+  "2 Peter",
+  "1 John",
+  "2 John",
+  "3 John",
+  "Jude",
+  "Revelation"
+ ],
+ "PACKS": [
+  {
+   "id": "money",
+   "k": "day",
+   "price": 2.99,
+   "t1": "Peace over",
+   "t2": "money worries.",
+   "blurb": "Seven days of trusting God with bills, budgets and the fear of not having enough.",
+   "days": [
+    [
+     "God knows what I need before I even ask.",
+     "Matthew 6:8",
+     "What money worry is loudest today? Write it down and hand it to God."
+    ],
+    [
+     "I will not borrow worry from tomorrow; today has enough grace.",
+     "Matthew 6:34",
+     "List three needs that were met this week, big or small."
+    ],
+    [
+     "My God supplies every need I have.",
+     "Philippians 4:19",
+     "Where have you seen provision you didn’t plan for?"
+    ],
+    [
+     "I can be content in plenty and in want, because Christ strengthens me.",
+     "Philippians 4:12-13",
+     "What would contentment look like in your budget this month?"
+    ],
+    [
+     "I honour God with what I have, and He is faithful.",
+     "Proverbs 3:9-10",
+     "What is one small, generous step you could take this week?"
+    ],
+    [
+     "I cast my cares on Him, because He cares for me.",
+     "1 Peter 5:7",
+     "Name the care you keep picking back up. What would it mean to leave it with Him?"
+    ],
+    [
+     "I have never been forsaken, and I will not be now.",
+     "Psalm 37:25",
+     "Write a short prayer of trust for the month ahead."
+    ]
+   ]
+  },
+  {
+   "id": "loss",
+   "k": "dusk",
+   "price": 2.99,
+   "t1": "Healing",
+   "t2": "after loss.",
+   "blurb": "A gentle week for grieving hearts, with room to remember, mourn and hope.",
+   "days": [
+    [
+     "The Lord is near to my broken heart.",
+     "Psalm 34:18",
+     "Write about a memory you want to keep close."
+    ],
+    [
+     "It is right for me to mourn, and I will be comforted.",
+     "Matthew 5:4",
+     "What do you miss most today?"
+    ],
+    [
+     "God keeps every one of my tears; none are wasted.",
+     "Psalm 56:8",
+     "When did you last let yourself cry? What did it feel like?"
+    ],
+    [
+     "Even in the valley of the shadow, He is with me.",
+     "Psalm 23:4",
+     "Where have you sensed God’s presence this week, even faintly?"
+    ],
+    [
+     "My grief is real, and so is my hope.",
+     "1 Thessalonians 4:13-14",
+     "What would you say to them if you could?"
+    ],
+    [
+     "Joy will come again in the morning.",
+     "Psalm 30:5",
+     "What small thing brought you comfort recently?"
+    ],
+    [
+     "One day God will wipe away every tear.",
+     "Revelation 21:4",
+     "Write a prayer for the days ahead."
+    ]
+   ]
+  },
+  {
+   "id": "mothers",
+   "k": "dawn",
+   "price": 2.99,
+   "t1": "Strength for",
+   "t2": "new mothers.",
+   "blurb": "Short, honest affirmations for long nights, small hands and a full heart.",
+   "days": [
+    [
+     "God gently leads me as I care for my little one.",
+     "Isaiah 40:11",
+     "What is one moment from today you want to remember?"
+    ],
+    [
+     "When I am tired, His strength is made perfect in my weakness.",
+     "2 Corinthians 12:9",
+     "Where do you need help right now? Who could you ask?"
+    ],
+    [
+     "My child is fearfully and wonderfully made.",
+     "Psalm 139:14",
+     "Write a blessing over your child."
+    ],
+    [
+     "God comforts me the way a mother comforts her child.",
+     "Isaiah 66:13",
+     "How have you been comforted this week?"
+    ],
+    [
+     "I can come to Jesus weary, and He gives me rest.",
+     "Matthew 11:28",
+     "What would rest look like for you this week, even for ten minutes?"
+    ],
+    [
+     "His mercies are new for me every morning, even after a long night.",
+     "Lamentations 3:22-23",
+     "What grace did you need this morning?"
+    ],
+    [
+     "My children are a gift from the Lord.",
+     "Psalm 127:3",
+     "Write a letter to your child about this season."
+    ]
+   ]
+  },
+  {
+   "id": "work",
+   "k": "night",
+   "price": 2.99,
+   "t1": "Courage",
+   "t2": "at work.",
+   "blurb": "For hard conversations, new roles and the quiet pressure of doing good work.",
+   "days": [
+    [
+     "Whatever I do, I work at it with all my heart, as for the Lord.",
+     "Colossians 3:23",
+     "What is the hardest part of your work right now?"
+    ],
+    [
+     "God has not given me a spirit of fear, but of power, love and a sound mind.",
+     "2 Timothy 1:7",
+     "Where is fear holding you back?"
+    ],
+    [
+     "The Lord goes before me; I will not be afraid or dismayed.",
+     "Deuteronomy 31:8",
+     "What new step feels daunting? What would courage look like?"
+    ],
+    [
+     "I commit my work to the Lord, and my plans are established.",
+     "Proverbs 16:3",
+     "Write down one plan and offer it to God."
+    ],
+    [
+     "I will not grow weary in doing good.",
+     "Galatians 6:9",
+     "Who at work could you encourage this week?"
+    ],
+    [
+     "I work diligently and trust God with the outcome.",
+     "Proverbs 10:4",
+     "What are you proud of from this week?"
+    ],
+    [
+     "I am God’s workmanship, created for good works.",
+     "Ephesians 2:10",
+     "What good work do you sense God calling you to?"
+    ]
+   ]
+  }
+ ],
+ "SCAPES": [
+  {
+   "id": "rain",
+   "n": "Rain on the roof",
+   "s": "Soft, steady rain",
+   "k": "dusk",
+   "free": true
+  },
+  {
+   "id": "ocean",
+   "n": "Ocean shore",
+   "s": "Slow waves rolling in",
+   "k": "night"
+  },
+  {
+   "id": "hymn",
+   "n": "Evening hymn",
+   "s": "A warm, choir-like pad",
+   "k": "dawn"
+  },
+  {
+   "id": "deep",
+   "n": "Deep rest",
+   "s": "A low, even hum for sleep",
+   "k": "ember"
+  }
+ ],
+ "KINDS": {
+  "alcohol": {
+   "n": "Alcohol",
+   "k": "ember",
+   "med": true,
+   "v": [
+    "Ephesians 5:18",
+    "Romans 13:14",
+    "Galatians 5:1",
+    "Psalm 40:2",
+    "1 Corinthians 10:13"
+   ],
+   "t": [
+    "Pour out or give away any alcohol at home.",
+    "Pick a go-to alcohol-free drink for social moments.",
+    "Take a route that avoids your usual bar or shop.",
+    "Write down what you’ll say if someone offers you a drink.",
+    "Find a recovery group meeting time, in person or online.",
+    "Plan something for the hour you usually drink.",
+    "Tell one trusted person you’re quitting."
+   ]
+  },
+  "smoking": {
+   "n": "Smoking or vaping",
+   "k": "day",
+   "v": [
+    "1 Corinthians 6:19-20",
+    "Galatians 5:1",
+    "Psalm 18:2",
+    "Isaiah 40:31",
+    "1 Corinthians 10:13"
+   ],
+   "t": [
+    "Throw away lighters, ashtrays and spare packs or pods.",
+    "Keep gum or sugar-free mints with you today.",
+    "Delay any craving by 10 minutes and notice it fade.",
+    "Wash the clothes and clean the car that hold the smell.",
+    "Swap your usual smoke break for a short walk.",
+    "Ask a doctor or pharmacist about quitting aids.",
+    "Work out how much money you’ve saved so far."
+   ]
+  },
+  "porn": {
+   "n": "Pornography",
+   "k": "dusk",
+   "v": [
+    "Psalm 51:10",
+    "Matthew 5:8",
+    "Psalm 119:9",
+    "Job 31:1",
+    "Philippians 4:8",
+    "Romans 12:2"
+   ],
+   "t": [
+    "Install a content filter on your phone and laptop.",
+    "Keep devices out of the bedroom tonight.",
+    "Unfollow accounts that pull you toward temptation.",
+    "Choose an accountability partner and tell them today.",
+    "When tempted, leave the room and pray Psalm 51:10.",
+    "Set your phone to greyscale after 9 p.m.",
+    "Write who you want to be a year from now."
+   ]
+  },
+  "gambling": {
+   "n": "Gambling",
+   "k": "grove",
+   "v": [
+    "Hebrews 13:5",
+    "1 Timothy 6:10",
+    "Proverbs 13:11",
+    "Matthew 6:33",
+    "Philippians 4:19"
+   ],
+   "t": [
+    "Block gambling sites and delete betting apps.",
+    "Ask your bank about blocking gambling transactions.",
+    "Let someone you trust hold your spare cash for a while.",
+    "List your debts or losses honestly, without judging yourself.",
+    "Plan what you’ll do during big games or events.",
+    "Look up a gambling support group near you.",
+    "Put the money you would have bet into savings."
+   ]
+  },
+  "phone": {
+   "n": "Social media and phone",
+   "k": "night",
+   "v": [
+    "Psalm 46:10",
+    "Ephesians 5:15-16",
+    "Philippians 4:8",
+    "Psalm 90:12",
+    "Romans 12:2"
+   ],
+   "t": [
+    "Turn off all non-essential notifications.",
+    "Move social apps off your home screen.",
+    "Keep your phone in another room for the first hour of the day.",
+    "Set a time limit on your most-used app.",
+    "Replace one scroll session with reading a Psalm.",
+    "Charge your phone outside the bedroom.",
+    "Have one meal today with no screens."
+   ]
+  },
+  "drugs": {
+   "n": "Drugs",
+   "k": "ember",
+   "med": true,
+   "v": [
+    "1 Corinthians 6:19-20",
+    "John 8:36",
+    "Psalm 40:2",
+    "2 Corinthians 5:17",
+    "1 Corinthians 10:13"
+   ],
+   "t": [
+    "Delete the contacts who supply you.",
+    "Remove any paraphernalia from your home.",
+    "Talk to a doctor about safe support for quitting.",
+    "Write down your highest-risk times and places.",
+    "Find a recovery meeting, in person or online.",
+    "Plan a sober activity for tonight.",
+    "Tell one trusted person about your goal."
+   ]
+  },
+  "gaming": {
+   "n": "Gaming",
+   "k": "night",
+   "v": [
+    "Ephesians 5:15-16",
+    "Psalm 90:12",
+    "Colossians 3:23",
+    "1 Corinthians 10:31",
+    "Galatians 5:1"
+   ],
+   "t": [
+    "Uninstall the game that takes the most time.",
+    "Set a hard stop for screens tonight.",
+    "Move consoles out of the bedroom.",
+    "Plan an offline activity with a friend.",
+    "Count how many hours you’ve won back this week.",
+    "Spend 30 minutes on an old hobby.",
+    "Turn off game notifications."
+   ]
+  },
+  "other": {
+   "n": "Something else",
+   "k": "dawn",
+   "v": [],
+   "t": []
+  }
+ },
+ "TPLS": [
+  {
+   "name": "Grow in faith",
+   "theme": "Faith",
+   "time": "06:30",
+   "period": "week",
+   "d": "New each week"
+  },
+  {
+   "name": "Morning prayer",
+   "theme": "Prayer",
+   "time": "07:00",
+   "period": "day",
+   "d": "New each day"
+  },
+  {
+   "name": "Cover my family",
+   "theme": "Protection",
+   "time": "21:00",
+   "period": "day",
+   "d": "New each day"
+  },
+  {
+   "name": "Find peace",
+   "theme": "Peace",
+   "time": "22:00",
+   "period": "month",
+   "d": "New each month"
+  }
+ ],
+ "URV": {
+  "Faith": [
+   "Hebrews 11:6",
+   "Mark 11:22-24",
+   "Romans 10:17",
+   "Hebrews 11:1",
+   "2 Corinthians 5:7",
+   "James 1:6"
+  ],
+  "Warfare": [
+   "Ephesians 6:10-12",
+   "2 Corinthians 10:4-5",
+   "Isaiah 54:17",
+   "James 4:7",
+   "Luke 10:19",
+   "Psalm 91:1-2"
+  ],
+  "Worship": [
+   "Psalm 95:6",
+   "John 4:23-24",
+   "Psalm 150:6",
+   "Romans 12:1",
+   "Psalm 29:2",
+   "Psalm 100:1-2"
+  ],
+  "Healing": [
+   "Jeremiah 17:14",
+   "Isaiah 53:5",
+   "Psalm 103:2-3",
+   "James 5:15",
+   "Exodus 15:26",
+   "Psalm 147:3"
+  ],
+  "Peace": [
+   "John 14:27",
+   "Philippians 4:6-7",
+   "Isaiah 26:3",
+   "Psalm 4:8",
+   "Colossians 3:15"
+  ],
+  "Protection": [
+   "Psalm 91:1-2",
+   "Psalm 121:7-8",
+   "Proverbs 18:10",
+   "2 Thessalonians 3:3",
+   "Psalm 46:1"
+  ],
+  "Thanksgiving": [
+   "Psalm 100:4",
+   "1 Thessalonians 5:18",
+   "Psalm 107:1",
+   "Colossians 3:17",
+   "Psalm 136:1"
+  ],
+  "Repentance": [
+   "1 John 1:9",
+   "Psalm 51:10",
+   "Acts 3:19",
+   "2 Chronicles 7:14",
+   "Isaiah 1:18"
+  ],
+  "Guidance": [
+   "Proverbs 3:5-6",
+   "Psalm 32:8",
+   "James 1:5",
+   "Psalm 119:105",
+   "Isaiah 30:21"
+  ],
+  "Provision": [
+   "Philippians 4:19",
+   "Matthew 6:33",
+   "Psalm 23:1",
+   "2 Corinthians 9:8",
+   "Psalm 34:10"
+  ],
+  "Intercession": [
+   "1 Timothy 2:1",
+   "James 5:16",
+   "Romans 8:26",
+   "Ephesians 6:18",
+   "Ezekiel 22:30"
+  ],
+  "Holy Spirit": [
+   "Acts 1:8",
+   "Galatians 5:22-23",
+   "John 14:26",
+   "Acts 2:4",
+   "Romans 8:14",
+   "Luke 11:13"
+  ]
+ },
+ "URK": {
+  "Faith": "day",
+  "Warfare": "ember",
+  "Worship": "dusk",
+  "Healing": "grove",
+  "Peace": "dawn",
+  "Protection": "night",
+  "Thanksgiving": "day",
+  "Repentance": "dusk",
+  "Guidance": "night",
+  "Provision": "grove",
+  "Holy Spirit": "ember",
+  "Intercession": "dawn"
+ },
+ "WATCHES": [
+  [
+   "First watch",
+   "18:00"
+  ],
+  [
+   "Second watch",
+   "21:00"
+  ],
+  [
+   "Third watch",
+   "00:00"
+  ],
+  [
+   "Fourth watch",
+   "03:00"
+  ]
+ ],
+ "MOODS": {
+  "Anxious": {
+   "th": [
+    "Peace",
+    "Protection"
+   ],
+   "note": "When worry runs ahead of you, these words bring you back to now."
+  },
+  "Weary": {
+   "th": [
+    "Strength",
+    "Renewal"
+   ],
+   "note": "For the tired places, a strength that doesn’t depend on you."
+  },
+  "Grieving": {
+   "th": [
+    "Hope",
+    "Healing",
+    "Love"
+   ],
+   "note": "Grief and hope can sit side by side. Here is something to hold."
+  },
+  "Lonely": {
+   "th": [
+    "Love",
+    "Protection"
+   ],
+   "note": "You are seen and held, even when no one else is in the room."
+  },
+  "Overwhelmed": {
+   "th": [
+    "Peace",
+    "Wisdom"
+   ],
+   "note": "One breath, one step, one promise at a time."
+  },
+  "Uncertain": {
+   "th": [
+    "Wisdom",
+    "Faith",
+    "Hope"
+   ],
+   "note": "You don’t need the whole map. Here is light for the next step."
+  },
+  "Grateful": {
+   "th": [
+    "Gratitude",
+    "Love"
+   ],
+   "note": "Let thankfulness grow into praise."
+  },
+  "Hopeful": {
+   "th": [
+    "Hope",
+    "Faith"
+   ],
+   "note": "Lean into the hope you feel. It stands on firm ground."
+  }
+ },
+ "KW": [
+  [
+   "money|bills?|debt|rent|salary|broke|financ|afford",
+   "Provision"
+  ],
+  [
+   "sick|ill|pain|health|hospital|diagnos|surgery|heal",
+   "Healing"
+  ],
+  [
+   "afraid|fear|scared|anxi|worr|panic|nervous|interview|exam",
+   "Peace"
+  ],
+  [
+   "tired|exhaust|weak|burn.?out|weary|drained",
+   "Strength"
+  ],
+  [
+   "decision|decide|choose|confus|direction|lost|future|career",
+   "Wisdom"
+  ],
+  [
+   "guilt|sin|shame|regret|mistake|forgive",
+   "Renewal"
+  ],
+  [
+   "alone|lonely|unloved|rejected|heartbr|break.?up|divorce",
+   "Love"
+  ],
+  [
+   "grief|griev|loss|lost my|died|death|passed away|funeral",
+   "Hope"
+  ],
+  [
+   "thank|grateful|blessed",
+   "Gratitude"
+  ],
+  [
+   "protect|danger|unsafe|attack|enemy|travel",
+   "Protection"
+  ],
+  [
+   "doubt|believe|faith",
+   "Faith"
+  ],
+  [
+   "pray",
+   "Prayer"
+  ]
+ ],
+ "TNOTE": {
+  "Provision": "God knows what you need, down to the last bill.",
+  "Healing": "For your body and your heart, the Healer is near.",
+  "Peace": "You can put the worry down for a moment. He is holding it.",
+  "Strength": "You don’t have to be strong on your own today.",
+  "Wisdom": "Ask freely. He gives wisdom without holding back.",
+  "Renewal": "Mercy is bigger than the mistake.",
+  "Love": "You are loved with a love that doesn’t leave.",
+  "Hope": "Even here, hope has the last word.",
+  "Gratitude": "Let thankfulness grow into praise.",
+  "Protection": "You are covered, wherever you go today.",
+  "Faith": "Small faith in a great God is enough.",
+  "Prayer": "He hears you, every word and every silence."
+ },
+ "NC": {
+  "butter": {
+   "n": "Butter",
+   "c": "#FCE59A"
+  },
+  "mint": {
+   "n": "Mint",
+   "c": "#BDF0D8"
+  },
+  "peach": {
+   "n": "Peach",
+   "c": "#F9C9A5"
+  },
+  "lilac": {
+   "n": "Lilac",
+   "c": "#CFC8F7"
+  },
+  "sky": {
+   "n": "Sky",
+   "c": "#A9D8F5"
+  },
+  "rose": {
+   "n": "Rose",
+   "c": "#F8B8D0"
+  }
+ },
+ "BICONS": [
+  "sun",
+  "heart",
+  "spark",
+  "book",
+  "journal",
+  "moon",
+  "compass",
+  "goals"
+ ],
+ "JPROMPTS": [
+  "What is one thing God showed you today?",
+  "Where did you feel peace today?",
+  "What are you anxious about? Write it as a prayer.",
+  "Who are you thankful for, and why?",
+  "What verse stayed with you this week?",
+  "Describe a moment from today you want to remember.",
+  "What do you need to forgive, or ask forgiveness for?",
+  "Where do you want to grow this month?",
+  "What answered prayer can you look back on?",
+  "If you had five quiet minutes with God, what would you say?",
+  "What is weighing on your heart tonight?",
+  "Write down three small joys from today.",
+  "What did you learn about yourself today?",
+  "Where did you see God’s kindness in someone else?",
+  "What are you hoping for right now?",
+  "What do you want to let go of before you sleep?"
+ ],
+ "JMOODS": [
+  "Joyful",
+  "Peaceful",
+  "Grateful",
+  "Hopeful",
+  "Tired",
+  "Anxious",
+  "Sad",
+  "Angry"
+ ],
+ "RMOODS": [
+  "Peaceful",
+  "Hopeful",
+  "Proud",
+  "Tired",
+  "Stressed",
+  "Lonely",
+  "Angry",
+  "Sad"
+ ],
+ "GEN_V": [
+  "1 Corinthians 10:13",
+  "Galatians 5:1",
+  "John 8:36",
+  "2 Corinthians 5:17",
+  "Philippians 4:13",
+  "Psalm 40:2",
+  "Romans 6:14",
+  "James 4:7",
+  "Isaiah 41:10",
+  "Lamentations 3:22-23",
+  "Romans 8:1",
+  "Hebrews 4:15-16",
+  "2 Corinthians 12:9",
+  "Psalm 34:18"
+ ],
+ "VAFF": {
+  "1 Corinthians 10:13": "No temptation is bigger than God’s way out.",
+  "Galatians 5:1": "Christ set me free, and I will not go back to that yoke.",
+  "John 8:36": "The Son has set me free, and I am free indeed.",
+  "2 Corinthians 5:17": "I am a new creation; the old is passing away.",
+  "Philippians 4:13": "I can do this through Christ who strengthens me.",
+  "Psalm 40:2": "God lifts me out of the pit and sets my feet on rock.",
+  "Romans 6:14": "This habit does not rule me. Grace does.",
+  "James 4:7": "I submit to God, I resist, and temptation flees.",
+  "Isaiah 41:10": "I will not fear; God holds me with His right hand.",
+  "Lamentations 3:22-23": "His mercies are new for me this morning.",
+  "Romans 8:1": "There is no condemnation for me in Christ.",
+  "Hebrews 4:15-16": "Jesus understands my struggle, and I can come boldly for help.",
+  "2 Corinthians 12:9": "His grace is enough for me today.",
+  "Psalm 34:18": "The Lord is close to me when I feel crushed.",
+  "Ephesians 5:18": "I am filled with the Spirit, not with wine.",
+  "Romans 13:14": "I make no room for the old habit to return.",
+  "1 Corinthians 6:19-20": "My body is a temple, and I honour God with it.",
+  "Psalm 18:2": "The Lord is my rock and my fortress.",
+  "Isaiah 40:31": "As I wait on the Lord, my strength is renewed.",
+  "Psalm 51:10": "God is creating a clean heart in me.",
+  "Matthew 5:8": "A pure heart will see God.",
+  "Psalm 119:9": "I keep my way pure by living by God’s word.",
+  "Job 31:1": "I make a covenant with my eyes.",
+  "Philippians 4:8": "I fill my mind with what is pure and lovely.",
+  "Romans 12:2": "My mind is being renewed day by day.",
+  "Hebrews 13:5": "I am content, because God will never leave me.",
+  "1 Timothy 6:10": "I will not let the love of money rule me.",
+  "Proverbs 13:11": "Patient, honest gain lasts; quick gain does not.",
+  "Matthew 6:33": "I seek God first, and He takes care of the rest.",
+  "Philippians 4:19": "My God supplies all I need.",
+  "Psalm 46:10": "I can be still and know that He is God.",
+  "Ephesians 5:15-16": "I use my time wisely, because these days matter.",
+  "Psalm 90:12": "Teach me to number my days and live them well.",
+  "Colossians 3:23": "Whatever I do, I do with my whole heart for the Lord.",
+  "1 Corinthians 10:31": "Whatever I do, I do for the glory of God."
+ },
+ "GEN_T": [
+  "Read today’s verse aloud, slowly, twice.",
+  "Write down one trigger you noticed today.",
+  "Text or call someone who supports you.",
+  "Take a 15-minute walk without your phone.",
+  "Drink a full glass of water when a craving starts.",
+  "Pray for one other person who is struggling.",
+  "Write three things you’re thankful for.",
+  "Plan your evening, hour by hour.",
+  "Go to bed 30 minutes earlier tonight.",
+  "Take ten slow breaths before each meal.",
+  "Learn 1 Corinthians 10:13 by heart.",
+  "Tell God honestly how today feels.",
+  "Do one kind thing for someone without telling them.",
+  "Remove one reminder of the habit from your space."
+ ],
+ "MILES": [
+  1,
+  3,
+  7,
+  14,
+  30,
+  60,
+  90,
+  180,
+  365
+ ],
+ "PLANS": {
+  "year": {
+   "name": "Yearly",
+   "price": 59.99,
+   "per": "year",
+   "note": "$5.00 a month, billed yearly",
+   "trial": 7,
+   "badge": "Save 50%"
+  },
+  "month": {
+   "name": "Monthly",
+   "price": 9.99,
+   "per": "month",
+   "note": "Billed every month"
+  }
+ },
+ "CT": {
+  "dawn": {
+   "n": "Bubblegum",
+   "bg": "#FFB0D4",
+   "t": "#4A0A14",
+   "r1": [
+    "#B6AEFF",
+    "#FF5F95"
+   ],
+   "r2": [
+    "#FFC66B",
+    "#FF8A5B"
+   ]
+  },
+  "day": {
+   "n": "Lemon",
+   "bg": "#F4F01E",
+   "t": "#0D3B26",
+   "r1": [
+    "#23C25F",
+    "#0D4A30"
+   ],
+   "r2": [
+    "#FFB0D4",
+    "#FF5F95"
+   ]
+  },
+  "dusk": {
+   "n": "Lavender",
+   "bg": "#B6AEFF",
+   "t": "#1E1446",
+   "r1": [
+    "#FFB0D4",
+    "#6450F0"
+   ],
+   "r2": [
+    "#FFC66B",
+    "#FF9A6B"
+   ]
+  },
+  "night": {
+   "n": "Forest",
+   "bg": "#0D4A30",
+   "t": "#E8F27A",
+   "r1": [
+    "#23C25F",
+    "#E8F27A"
+   ],
+   "r2": [
+    "#062A1B",
+    "#23C25F"
+   ]
+  },
+  "grove": {
+   "n": "Leaf",
+   "bg": "#23C25F",
+   "t": "#06341B",
+   "r1": [
+    "#F4F01E",
+    "#0D4A30"
+   ],
+   "r2": [
+    "#E8F27A",
+    "#0D4A30"
+   ]
+  },
+  "ember": {
+   "n": "Oxblood",
+   "bg": "#5A0B13",
+   "t": "#FFB0D4",
+   "r1": [
+    "#FFB0D4",
+    "#FF3F6C"
+   ],
+   "r2": [
+    "#FFC66B",
+    "#FF7A4F"
+   ]
+  }
+ },
+ "TCOL": {
+  "Faith": "day",
+  "Prayer": "dusk",
+  "Protection": "night",
+  "Peace": "dawn",
+  "Strength": "ember",
+  "Love": "dawn",
+  "Gratitude": "day",
+  "Wisdom": "night",
+  "Healing": "grove",
+  "Provision": "grove",
+  "Hope": "dusk",
+  "Renewal": "ember",
+  "any": "dusk"
+ },
+ "ROT": {
+  "1h": "Every hour",
+  "3h": "Every 3 hours",
+  "am-pm": "Morning and evening",
+  "1d": "Once a day"
+ },
+ "LANGS": {
+  "en": {
+   "n": "English",
+   "loc": "en-US"
+  },
+  "fr": {
+   "n": "Français",
+   "loc": "fr-FR"
+  },
+  "ru": {
+   "n": "Русский",
+   "loc": "ru-RU"
+  }
+ },
+ "VERS": {
+  "kjv": {
+   "n": "King James Version",
+   "sub": "English, 1611",
+   "abbr": "KJV",
+   "lang": "en",
+   "loc": "en-US"
+  },
+  "lsg": {
+   "n": "Louis Segond",
+   "sub": "Français, 1910",
+   "abbr": "LSG",
+   "lang": "fr",
+   "loc": "fr-FR"
+  },
+  "dby": {
+   "n": "Bible Darby",
+   "sub": "Français, 1885",
+   "abbr": "Darby",
+   "lang": "fr",
+   "loc": "fr-FR"
+  },
+  "syn": {
+   "n": "Синодальный перевод",
+   "sub": "Русский, 1876",
+   "abbr": "Синод.",
+   "lang": "ru",
+   "loc": "ru-RU"
+  }
+ },
+ "BOOKS_L": {
+  "fr": [
+   "Genèse",
+   "Exode",
+   "Lévitique",
+   "Nombres",
+   "Deutéronome",
+   "Josué",
+   "Juges",
+   "Ruth",
+   "1 Samuel",
+   "2 Samuel",
+   "1 Rois",
+   "2 Rois",
+   "1 Chroniques",
+   "2 Chroniques",
+   "Esdras",
+   "Néhémie",
+   "Esther",
+   "Job",
+   "Psaumes",
+   "Proverbes",
+   "Ecclésiaste",
+   "Cantique des cantiques",
+   "Ésaïe",
+   "Jérémie",
+   "Lamentations",
+   "Ézéchiel",
+   "Daniel",
+   "Osée",
+   "Joël",
+   "Amos",
+   "Abdias",
+   "Jonas",
+   "Michée",
+   "Nahum",
+   "Habacuc",
+   "Sophonie",
+   "Aggée",
+   "Zacharie",
+   "Malachie",
+   "Matthieu",
+   "Marc",
+   "Luc",
+   "Jean",
+   "Actes",
+   "Romains",
+   "1 Corinthiens",
+   "2 Corinthiens",
+   "Galates",
+   "Éphésiens",
+   "Philippiens",
+   "Colossiens",
+   "1 Thessaloniciens",
+   "2 Thessaloniciens",
+   "1 Timothée",
+   "2 Timothée",
+   "Tite",
+   "Philémon",
+   "Hébreux",
+   "Jacques",
+   "1 Pierre",
+   "2 Pierre",
+   "1 Jean",
+   "2 Jean",
+   "3 Jean",
+   "Jude",
+   "Apocalypse"
+  ],
+  "ru": [
+   "Бытие",
+   "Исход",
+   "Левит",
+   "Числа",
+   "Второзаконие",
+   "Иисус Навин",
+   "Судьи",
+   "Руфь",
+   "1 Царств",
+   "2 Царств",
+   "3 Царств",
+   "4 Царств",
+   "1 Паралипоменон",
+   "2 Паралипоменон",
+   "Ездра",
+   "Неемия",
+   "Есфирь",
+   "Иов",
+   "Псалтирь",
+   "Притчи",
+   "Екклесиаст",
+   "Песнь песней",
+   "Исаия",
+   "Иеремия",
+   "Плач Иеремии",
+   "Иезекииль",
+   "Даниил",
+   "Осия",
+   "Иоиль",
+   "Амос",
+   "Авдий",
+   "Иона",
+   "Михей",
+   "Наум",
+   "Аввакум",
+   "Софония",
+   "Аггей",
+   "Захария",
+   "Малахия",
+   "От Матфея",
+   "От Марка",
+   "От Луки",
+   "От Иоанна",
+   "Деяния",
+   "Римлянам",
+   "1 Коринфянам",
+   "2 Коринфянам",
+   "Галатам",
+   "Ефесянам",
+   "Филиппийцам",
+   "Колоссянам",
+   "1 Фессалоникийцам",
+   "2 Фессалоникийцам",
+   "1 Тимофею",
+   "2 Тимофею",
+   "Титу",
+   "Филимону",
+   "Евреям",
+   "Иакова",
+   "1 Петра",
+   "2 Петра",
+   "1 Иоанна",
+   "2 Иоанна",
+   "3 Иоанна",
+   "Иуды",
+   "Откровение"
+  ]
+ },
+ "PSALM_SG": {
+  "fr": "Psaume",
+  "ru": "Псалом"
+ },
+ "TRIG_BASE": [
+  "Hungry",
+  "Angry",
+  "Lonely",
+  "Tired",
+  "Bored",
+  "Stressed",
+  "Anxious",
+  "Sad",
+  "Late at night",
+  "Alone at home",
+  "After an argument",
+  "Certain people",
+  "Certain places",
+  "Social media"
+ ],
+ "TRIG_KIND": {
+  "alcohol": [
+   "After work",
+   "Parties",
+   "Weekends"
+  ],
+  "smoking": [
+   "Coffee",
+   "After meals",
+   "Driving"
+  ],
+  "porn": [
+   "Phone in bed",
+   "Scrolling"
+  ],
+  "gambling": [
+   "Payday",
+   "Sports on TV",
+   "Ads"
+  ],
+  "phone": [
+   "Notifications",
+   "Waking up"
+  ],
+  "drugs": [
+   "Pain",
+   "Weekends"
+  ],
+  "gaming": [
+   "After school or work",
+   "Can’t sleep"
+  ],
+  "other": []
+ },
+ "REASON_SUG": [
+  "My walk with God",
+  "My family",
+  "My health",
+  "My peace of mind",
+  "My money",
+  "Being present for the people I love",
+  "Self-respect",
+  "My future"
+ ],
+ "PLAN_SUG": {
+  "Hungry": "Eat something first",
+  "Angry": "Step outside and breathe for four minutes",
+  "Lonely": "Call or text someone I trust",
+  "Tired": "Go to bed instead of staying up",
+  "Bored": "Do one small task from my list",
+  "Stressed": "Take a ten-minute walk and pray",
+  "Anxious": "Read my verse aloud and breathe slowly",
+  "Sad": "Write it out in my journal",
+  "Late at night": "Put my phone outside the bedroom",
+  "Alone at home": "Go somewhere public or call someone",
+  "Phone in bed": "Charge my phone outside the bedroom",
+  "Scrolling": "Close the app and open my reasons",
+  "Social media": "Close the app and open my reasons"
+ },
+ "MDESC": {
+  "1": "The first day is often the hardest. You did it.",
+  "3": "Three days of choosing freedom.",
+  "7": "One full week. Keep going.",
+  "14": "Two weeks. New patterns are forming.",
+  "30": "One month. A real foundation.",
+  "60": "Two months of daily choices.",
+  "90": "Ninety days, a milestone many recovery programs celebrate.",
+  "180": "Half a year of freedom.",
+  "365": "One whole year free."
+ },
+ "SMOKE_HEALTH": [
+  [
+   20,
+   "20 minutes",
+   "Your heart rate and blood pressure drop."
+  ],
+  [
+   720,
+   "12 hours",
+   "The carbon monoxide level in your blood drops to normal."
+  ],
+  [
+   20160,
+   "2 to 12 weeks",
+   "Your circulation improves and your lung function increases."
+  ],
+  [
+   43200,
+   "1 to 9 months",
+   "Coughing and shortness of breath decrease."
+  ],
+  [
+   525600,
+   "1 year",
+   "Your risk of coronary heart disease is about half that of a smoker."
+  ],
+  [
+   2628000,
+   "5 years",
+   "Your stroke risk can fall to that of a non-smoker."
+  ],
+  [
+   5256000,
+   "10 years",
+   "Your risk of lung cancer falls to about half that of a smoker."
+  ],
+  [
+   7884000,
+   "15 years",
+   "Your risk of coronary heart disease is that of a non-smoker."
+  ]
+ ],
+ "SOS_PRAYER": "Lord Jesus, You know this pull and You understand my weakness. I don’t want to go back. Give me Your strength for the next ten minutes, and the next. Thank You that there is no condemnation for me in You. Lead me in the way out You have promised. Amen.",
+ "ONB": [
+  {
+   "ph": "word",
+   "k": "dusk",
+   "a": "Scripture that",
+   "b": "meets you.",
+   "p": "Wake up to an affirmation drawn straight from the Word, chosen for what you want to grow in and timed to your quiet time.",
+   "pts": [
+    "Daily affirmations rooted in the Bible",
+    "The whole Bible beside them, to read and highlight",
+    "Share any verse as a beautiful card"
+   ]
+  },
+  {
+   "ph": "prayer",
+   "k": "night",
+   "a": "Pray deeper in the",
+   "b": "upper room.",
+   "p": "Set the scene for prayer with soft music and scripture read aloud, keep prayer watches through the night, then sit in silence and write down what you heard.",
+   "pts": [
+    "Prayer sessions with your own playlist",
+    "Night watches with gentle reminders",
+    "A moment of silence after every prayer"
+   ]
+  },
+  {
+   "ph": "path",
+   "k": "ember",
+   "a": "Break free,",
+   "b": "one day at a time.",
+   "p": "Leave a habit behind with a morning pledge, help in the moment a craving hits, and grace instead of shame when you slip.",
+   "pts": [
+    "A craving button that walks you through it",
+    "Your triggers, patterns and if-then plans",
+    "Private: it never leaves your device unencrypted"
+   ]
+  },
+  {
+   "ph": "journal",
+   "k": "day",
+   "a": "Write down what",
+   "b": "God is saying.",
+   "p": "Notebooks for prayers and sermon notes, a sticky board for the thoughts you want in front of you, and every check-in kept in one place.",
+   "pts": [
+    "Notebooks, tags and moods",
+    "A sticky board you can pin to",
+    "Search everything you’ve written"
+   ]
+  },
+  {
+   "ph": "night",
+   "k": "grove",
+   "a": "Rest in",
+   "b": "His peace.",
+   "p": "Fall asleep to rain, ocean or a soft hymn while scripture is spoken over you. Add your own recordings, too.",
+   "pts": [
+    "Sleep Scapes with spoken affirmations",
+    "A sleep timer that fades out",
+    "Upload your own worship and meditations"
+   ]
+  },
+  {
+   "ph": "lake",
+   "k": "dawn",
+   "a": "Yours, and",
+   "b": "only yours.",
+   "p": "Your prayers and struggles are sacred. Lock the app with a passcode, encrypt your private pages, and pick up on any device.",
+   "pts": [
+    "Passcode and fingerprint lock",
+    "End-to-end encryption for private pages",
+    "English, Français and Русский, with three Bibles"
+   ]
+  }
+ ],
+ "PH": {
+  "peace": [
+   "1565733293285-77aa342b22dd",
+   "1505142468610-359e7d316be0",
+   "1507525428034-b723cf961d3e"
+  ],
+  "faith": [
+   "1506905925346-21bda4d32df4",
+   "1500534623283-312aade485b7"
+  ],
+  "prayer": [
+   "1476900164809-ff19b8ae5968",
+   "1601922046210-41e129a3e64a",
+   "1561212856-44e9bae482aa"
+  ],
+  "forest": [
+   "1425913397330-cf8af2ff40a1",
+   "1426170042593-200f250dfdaf"
+  ],
+  "strength": [
+   "1500534623283-312aade485b7",
+   "1490682143684-14369e18dce8"
+  ],
+  "love": [
+   "1533907650686-70576141c030",
+   "1428353077903-d09b3e000f37"
+  ],
+  "harvest": [
+   "1500382017468-9049fed747ef",
+   "1618008128375-45f79509db3e"
+  ],
+  "word": [
+   "1504052434569-70ad5836ab65",
+   "1506905925346-21bda4d32df4"
+  ],
+  "flowers": [
+   "1428353077903-d09b3e000f37",
+   "1533907650686-70576141c030"
+  ],
+  "sunrise": [
+   "1470252649378-9c29740c9fa8",
+   "1490682143684-14369e18dce8"
+  ],
+  "path": [
+   "1470115636492-6d2b56f9146d",
+   "1425913397330-cf8af2ff40a1"
+  ],
+  "night": [
+   "1519681393784-d120267933ba",
+   "1628498188873-579210ce622e"
+  ],
+  "rain": [
+   "1515694346937-94d85e41e6f0",
+   "1509635022432-0220ac12960b"
+  ],
+  "lake": [
+   "1533757879476-8f4a3cb1ae4b",
+   "1439853949127-fa647821eba0"
+  ],
+  "journal": [
+   "1517842645767-c639042777db",
+   "1504052434569-70ad5836ab65"
+  ],
+  "mountain": [
+   "1464822759023-fed622ff2c3b",
+   "1506905925346-21bda4d32df4"
+  ],
+  "woods": [
+   "1441974231531-c6227db76b6e",
+   "1425913397330-cf8af2ff40a1"
+  ],
+  "valley": [
+   "1469474968028-56623f02e42e",
+   "1501854140801-50d01698950b"
+  ],
+  "waterfall": [
+   "1433086966358-54859d0ed716",
+   "1469474968028-56623f02e42e"
+  ],
+  "aerial": [
+   "1501854140801-50d01698950b",
+   "1505142468610-359e7d316be0"
+  ]
+ },
+ "PH_THEME": {
+  "Faith": "faith",
+  "Prayer": "prayer",
+  "Protection": "forest",
+  "Peace": "peace",
+  "Strength": "strength",
+  "Love": "love",
+  "Gratitude": "harvest",
+  "Wisdom": "word",
+  "Healing": "flowers",
+  "Provision": "harvest",
+  "Hope": "sunrise",
+  "Renewal": "path"
+ },
+ "PH_PACK": {
+  "money": "harvest",
+  "loss": "flowers",
+  "mothers": "sunrise",
+  "work": "path"
+ },
+ "PH_SCAPE": {
+  "rain": "rain",
+  "ocean": "peace",
+  "hymn": "prayer",
+  "deep": "night"
+ },
+ "PH_KIND": {
+  "alcohol": "path",
+  "smoking": "woods",
+  "porn": "lake",
+  "gambling": "harvest",
+  "phone": "night",
+  "drugs": "sunrise",
+  "gaming": "mountain",
+  "other": "valley"
+ },
+ "PH_FEAT": {
+  "ur": "night",
+  "jr": "journal",
+  "free": "path",
+  "guide": "faith",
+  "audio": "night",
+  "packs": "flowers",
+  "widgets": "valley",
+  "free-check": "sunrise"
+ },
+ "PH_ROTA": [
+  "sunrise",
+  "peace",
+  "faith",
+  "forest",
+  "flowers",
+  "lake",
+  "path",
+  "valley",
+  "woods",
+  "mountain",
+  "harvest",
+  "waterfall",
+  "night",
+  "aerial"
+ ],
+ "CARD_BG": [
+  "sunrise",
+  "peace",
+  "faith",
+  "flowers",
+  "lake",
+  "woods",
+  "night",
+  "harvest"
+ ],
+ "RP": [
+  [
+   "M30 250 C 30 120 170 90 170 190 S 300 260 280 60",
+   "M120 20 C 260 20 280 150 200 170"
+  ],
+  [
+   "M20 60 C 160 -10 290 60 220 160 S 60 240 150 300",
+   "M230 300 C 300 200 260 120 300 90"
+  ],
+  [
+   "M300 40 C 150 30 80 140 170 200 S 300 300 120 290",
+   "M30 30 C 60 140 0 200 60 280"
+  ],
+  [
+   "M60 300 C 0 200 120 120 200 160 S 280 40 180 20",
+   "M300 210 C 220 250 250 300 300 300"
+  ]
+ ],
+ "QCOL": [
+  "dawn",
+  "day",
+  "dusk",
+  "grove",
+  "ember",
+  "night"
+ ],
+ "PEVERY": {
+  "day": "new each day",
+  "week": "new each week",
+  "month": "new each month",
+  "year": "new each year"
+ },
+ "DNAMES": [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat"
+ ],
+ "SEG": 480,
+ "FREE_GUIDE": 1,
+ "WDEF": {
+  "size": "medium",
+  "style": "dusk",
+  "content": "both",
+  "rotate": "3h",
+  "font": "sans"
+ },
+ "AFFS": [
+  {
+   "theme": "Faith",
+   "ref": "Hebrews 11:1",
+   "a": "My faith is real today, and I trust God with what I cannot yet see."
+  },
+  {
+   "theme": "Faith",
+   "ref": "2 Corinthians 5:7",
+   "a": "I walk by faith and not by sight."
+  },
+  {
+   "theme": "Faith",
+   "ref": "Mark 11:24",
+   "a": "I pray with belief, and I trust God to answer."
+  },
+  {
+   "theme": "Faith",
+   "ref": "Romans 10:17",
+   "a": "My faith grows every time I take in God's word."
+  },
+  {
+   "theme": "Faith",
+   "ref": "Matthew 17:20",
+   "a": "Even my small faith can move mountains."
+  },
+  {
+   "theme": "Faith",
+   "ref": "Mark 9:23",
+   "a": "All things are possible for me because I believe."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "Philippians 4:6",
+   "a": "I bring every worry to God in prayer, with a thankful heart."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "Jeremiah 33:3",
+   "a": "I call on God, and He shows me things I have not yet known."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "1 Thessalonians 5:17",
+   "a": "My heart stays open to God throughout this day."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "Matthew 6:6",
+   "a": "In my quiet place, my Father sees me and meets me."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "James 5:16",
+   "a": "My prayers matter, and they carry power."
+  },
+  {
+   "theme": "Prayer",
+   "ref": "1 John 5:14",
+   "a": "I pray with confidence because God hears me."
+  },
+  {
+   "theme": "Protection",
+   "ref": "Psalm 91:1-2",
+   "a": "I rest in the shelter of the Most High; He is my refuge and my fortress."
+  },
+  {
+   "theme": "Protection",
+   "ref": "Isaiah 54:17",
+   "a": "No weapon formed against me will prosper."
+  },
+  {
+   "theme": "Protection",
+   "ref": "Psalm 121:7-8",
+   "a": "The Lord keeps me in my going out and in my coming in."
+  },
+  {
+   "theme": "Protection",
+   "ref": "2 Thessalonians 3:3",
+   "a": "The Lord is faithful, and He guards me from evil."
+  },
+  {
+   "theme": "Protection",
+   "ref": "Proverbs 18:10",
+   "a": "The name of the Lord is my strong tower, and I am safe in it."
+  },
+  {
+   "theme": "Protection",
+   "ref": "Psalm 91:11",
+   "a": "God has given His angels charge over me."
+  },
+  {
+   "theme": "Peace",
+   "ref": "John 14:27",
+   "a": "I receive the peace of Christ, and I will not let my heart be troubled."
+  },
+  {
+   "theme": "Peace",
+   "ref": "Isaiah 26:3",
+   "a": "My mind is fixed on God, so He keeps me in perfect peace."
+  },
+  {
+   "theme": "Peace",
+   "ref": "Philippians 4:7",
+   "a": "God's peace guards my heart and my mind."
+  },
+  {
+   "theme": "Peace",
+   "ref": "Psalm 4:8",
+   "a": "I lie down in peace and sleep, for the Lord keeps me safe."
+  },
+  {
+   "theme": "Peace",
+   "ref": "Colossians 3:15",
+   "a": "I let the peace of God rule in my heart."
+  },
+  {
+   "theme": "Peace",
+   "ref": "Numbers 6:24-26",
+   "a": "The Lord blesses me, keeps me, and gives me peace."
+  },
+  {
+   "theme": "Strength",
+   "ref": "Isaiah 40:31",
+   "a": "As I wait on the Lord, my strength is renewed."
+  },
+  {
+   "theme": "Strength",
+   "ref": "Philippians 4:13",
+   "a": "I can do all things through Christ who strengthens me."
+  },
+  {
+   "theme": "Strength",
+   "ref": "Joshua 1:9",
+   "a": "I am strong and courageous, for the Lord is with me wherever I go."
+  },
+  {
+   "theme": "Strength",
+   "ref": "Psalm 28:7",
+   "a": "The Lord is my strength and my shield; my heart trusts in Him."
+  },
+  {
+   "theme": "Strength",
+   "ref": "Nehemiah 8:10",
+   "a": "The joy of the Lord is my strength."
+  },
+  {
+   "theme": "Strength",
+   "ref": "2 Corinthians 12:9",
+   "a": "God's grace is enough for me, and His power is made perfect in my weakness."
+  },
+  {
+   "theme": "Love",
+   "ref": "Romans 8:38-39",
+   "a": "Nothing can separate me from the love of God."
+  },
+  {
+   "theme": "Love",
+   "ref": "1 John 4:19",
+   "a": "I love because God first loved me."
+  },
+  {
+   "theme": "Love",
+   "ref": "Jeremiah 31:3",
+   "a": "I am loved with an everlasting love."
+  },
+  {
+   "theme": "Love",
+   "ref": "Zephaniah 3:17",
+   "a": "The Lord my God is with me; He delights in me and sings over me."
+  },
+  {
+   "theme": "Love",
+   "ref": "John 15:12",
+   "a": "I love others the way Christ has loved me."
+  },
+  {
+   "theme": "Love",
+   "ref": "1 John 4:18",
+   "a": "Perfect love casts out my fear."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "Psalm 118:24",
+   "a": "This is the day the Lord has made, and I will rejoice in it."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "1 Thessalonians 5:18",
+   "a": "I give thanks in every circumstance."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "Psalm 100:4",
+   "a": "I enter His gates with thanksgiving and His courts with praise."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "Psalm 107:1",
+   "a": "I give thanks to the Lord, for He is good and His mercy endures forever."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "Colossians 3:17",
+   "a": "Whatever I do, I do in Jesus' name, giving thanks to God."
+  },
+  {
+   "theme": "Gratitude",
+   "ref": "Lamentations 3:22-23",
+   "a": "His mercies are new to me every morning."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "Proverbs 3:5-6",
+   "a": "I trust the Lord with all my heart, and He directs my path."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "James 1:5",
+   "a": "I ask God for wisdom, and He gives it generously."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "Psalm 119:105",
+   "a": "God's word is a lamp to my feet and a light to my path."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "Proverbs 16:3",
+   "a": "I commit my work to the Lord, and my plans are established."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "Proverbs 4:7",
+   "a": "I seek wisdom first, and I seek understanding with all I have."
+  },
+  {
+   "theme": "Wisdom",
+   "ref": "Proverbs 2:6",
+   "a": "The Lord gives me wisdom; knowledge and understanding come from Him."
+  },
+  {
+   "theme": "Healing",
+   "ref": "Jeremiah 17:14",
+   "a": "Heal me, Lord, and I will be healed; save me, and I will be saved."
+  },
+  {
+   "theme": "Healing",
+   "ref": "Psalm 103:2-3",
+   "a": "The Lord forgives me and heals me; I will not forget His benefits."
+  },
+  {
+   "theme": "Healing",
+   "ref": "Isaiah 53:5",
+   "a": "By His stripes I am healed."
+  },
+  {
+   "theme": "Healing",
+   "ref": "Psalm 147:3",
+   "a": "The Lord heals my broken heart and binds up my wounds."
+  },
+  {
+   "theme": "Healing",
+   "ref": "Exodus 15:26",
+   "a": "I listen to the Lord, for He is the Lord who heals me."
+  },
+  {
+   "theme": "Healing",
+   "ref": "3 John 1:2",
+   "a": "I prosper and am in health, even as my soul prospers."
+  },
+  {
+   "theme": "Provision",
+   "ref": "Philippians 4:19",
+   "a": "My God supplies all my needs according to His riches in glory."
+  },
+  {
+   "theme": "Provision",
+   "ref": "Psalm 23:1",
+   "a": "The Lord is my shepherd; I lack nothing."
+  },
+  {
+   "theme": "Provision",
+   "ref": "Matthew 6:33",
+   "a": "I seek God's kingdom first, and everything I need is added to me."
+  },
+  {
+   "theme": "Provision",
+   "ref": "Psalm 34:10",
+   "a": "Those who seek the Lord will not lack any good thing."
+  },
+  {
+   "theme": "Provision",
+   "ref": "2 Corinthians 9:8",
+   "a": "God is able to make all grace abound toward me."
+  },
+  {
+   "theme": "Provision",
+   "ref": "Deuteronomy 8:18",
+   "a": "I remember the Lord, who gives me the strength to work and provide."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Romans 15:13",
+   "a": "The God of hope fills me with joy and peace as I trust Him."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Jeremiah 29:11",
+   "a": "God has plans for me, plans for peace and a future with hope."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Romans 8:28",
+   "a": "God is working all things together for my good."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Isaiah 43:19",
+   "a": "God is doing a new thing in my life."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Psalm 42:11",
+   "a": "I put my hope in God, and I will praise Him again."
+  },
+  {
+   "theme": "Hope",
+   "ref": "Romans 12:12",
+   "a": "I rejoice in hope, stay patient in trouble, and keep praying."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "1 John 1:9",
+   "a": "I confess my sins, and God is faithful to forgive and cleanse me."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "Psalm 51:10",
+   "a": "God creates a clean heart in me and renews a right spirit within me."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "2 Corinthians 5:17",
+   "a": "In Christ I am a new creation; the old has passed away."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "Ephesians 4:32",
+   "a": "I forgive others as God in Christ has forgiven me."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "Isaiah 1:18",
+   "a": "My sins, though like scarlet, are made white as snow."
+  },
+  {
+   "theme": "Renewal",
+   "ref": "Romans 8:1",
+   "a": "There is no condemnation for me in Christ Jesus."
+  }
+ ]
+}
