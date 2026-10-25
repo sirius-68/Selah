@@ -112,4 +112,14 @@ export function ListRow({ left, title, sub, right, onPress, tr = true }: { left?
   if (!onPress) return <View style={st}>{inner}</View>;
   return <Pressable onPress={() => { tap(); onPress(); }} style={({ pressed }) => [st, { opacity: pressed ? 0.9 : 1 }]}>{inner}</Pressable>;
 }
+/* dashed "add" row */
+export function Upl({ icon, title, body, onPress, lav }: { icon: string; title: string; body: string; onPress: () => void; lav?: boolean }) {
+  const c = useC();
+  return (
+    <Pressable onPress={() => { tap(); onPress(); }} style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16, borderRadius: 24, backgroundColor: c.surface, borderWidth: 1.5, borderStyle: 'dashed', borderColor: c.line, opacity: pressed ? 0.9 : 1 })}>
+      <View style={{ width: 48, height: 48, borderRadius: 16, backgroundColor: lav ? '#B6AEFF' : c.pill, alignItems: 'center', justifyContent: 'center' }}><Icon name={icon} color={lav ? '#1E1446' : c.onPill} /></View>
+      <View style={{ flex: 1 }}><Txt w={700}>{title}</Txt><Txt muted size={14} style={{ marginTop: 2 }}>{body}</Txt></View>
+    </Pressable>
+  );
+}
 export { CT };

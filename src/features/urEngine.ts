@@ -18,7 +18,7 @@ const subs = new Set<() => void>();
 export const onRun = (f: () => void) => { subs.add(f); return () => { subs.delete(f); }; };
 const emit = () => subs.forEach(f => f());
 
-export function startPrayer(kind: string, id?: string | null) {
+export function startPrayer(kind: string, id?: string | null, nav = true) {
   if (UR.run) endPrayer(true);
   const src = id ? urItem(kind, id) : null;
   const x = src || { name: t('Open prayer'), themes: ['Worship', 'Peace'], custom: [], scrOn: true, every: 2, playlist: [{ t: 'scape', id: 'hymn' }], target: 0 };
@@ -27,7 +27,7 @@ export function startPrayer(kind: string, id?: string | null) {
   UR.run = { kind: src ? kind : 'session', refId: src ? src.id : null, name: x.name, start: Date.now(), verses: vs.length ? vs : URV.Worship, vi: 0, scrOn: x.scrOn !== false && !!vs.length, every: x.every || 2,
     playlist: (x.playlist || []).filter((it: any) => it.t === 'scape' || mine.some(m => m.id === it.id)), pi: 0, musicOn: true, paused: false, target: (kind === 'watch' && src ? src.dur : x.target) || 0, cur: null, chimed: false };
   activateKeepAwakeAsync('prayer').catch(() => {});
-  router.push('/ur/run');
+  if (nav) router.push('/ur/run');
   urMusic(0); urScripture(true);
 }
 const loopThis = (r: Run) => S.ur.repeat === 'one' || (r.playlist.length === 1 && S.ur.repeat === 'all');
