@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, Share, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, Share, TextInput, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useStore, mutate, S as SS } from '@/lib/store';
@@ -102,12 +102,12 @@ export default function Journal() {
           <Icon name="search" color={c.muted} />
           <TextInput value={q} onChangeText={setQ} placeholder={t('Search your journal')} placeholderTextColor={c.muted} style={{ flex: 1, color: c.ink, fontFamily: F[400], fontSize: 16, paddingVertical: 12 }} />
         </View>
-        <View style={{ flexDirection: 'row', gap: 22, marginVertical: 22, flexWrap: 'wrap' }}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -16, marginVertical: 22, flexGrow: 0 }} contentContainerStyle={{ paddingHorizontal: 16, gap: 22 }}>
           {TABS.map(([k, l]) => <Pressable key={k} onPress={() => { setTab(k); setQ(''); }} style={{ paddingTop: 6, paddingBottom: 8 }}>
             <Txt w={tab === k ? 700 : 500} size={16} color={tab === k ? c.ink : c.muted}>{l}</Txt>
             {tab === k ? <View style={{ position: 'absolute', left: 0, bottom: 0, width: 24, height: 3, borderRadius: 3, backgroundColor: '#F4F01E' }} /> : null}
           </Pressable>)}
-        </View>
+        </ScrollView>
         {body}
       </Page>
       {tab !== 'notebooks' || q ? <Pressable accessibilityLabel={t('New journal entry')} onPress={() => create()} style={{ position: 'absolute', right: 20, bottom: 22 + ins.bottom, width: 62, height: 62, borderRadius: 31, backgroundColor: c.pill, alignItems: 'center', justifyContent: 'center', ...shadow(12, 0.3) }}><Icon name="plus" size={26} color={c.onPill} /></Pressable> : null}
