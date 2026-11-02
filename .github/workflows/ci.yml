@@ -95,7 +95,7 @@ jobs:
         if: always()
         run: |
           mkdir -p /tmp/log && cd /tmp/log
-          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:|e: |FAILURE|What went wrong|Error:" -A4 "$GITHUB_WORKSPACE/android-build.log" | head -300; echo "== tail =="; tail -120 "$GITHUB_WORKSPACE/android-build.log"; } > android.txt 2>/dev/null || echo "no log" > android.txt
+          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:|e: |FAILURE|What went wrong|Error:" -A4 "$GITHUB_WORKSPACE/android-build.log" | head -300; echo "== widget =="; grep -n -i "widget" "$GITHUB_WORKSPACE/android/app/src/main/AndroidManifest.xml" | head -10; echo "== tail =="; tail -120 "$GITHUB_WORKSPACE/android-build.log"; } > android.txt 2>/dev/null || echo "no log" > android.txt
           git init -q && git checkout -q -b ci-out-android && git add -A
           git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "android ${{ github.sha }}"
           git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-out-android
@@ -124,7 +124,7 @@ jobs:
         if: always()
         run: |
           mkdir -p /tmp/log && cd /tmp/log
-          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:" "$GITHUB_WORKSPACE/ios-build.log" | sort -u | head -200; echo "== tail =="; tail -60 "$GITHUB_WORKSPACE/ios-build.log"; } > ios.txt 2>/dev/null || echo "no log" > ios.txt
+          { echo "commit ${{ github.sha }}"; echo "== errors =="; grep -E "error:" "$GITHUB_WORKSPACE/ios-build.log" | sort -u | head -200; echo "== widget =="; grep -c "SelahWidget" "$GITHUB_WORKSPACE/ios-build.log"; find ~/Library/Developer/Xcode/DerivedData -name "*.appex" -maxdepth 8 2>/dev/null | head -5; echo "== tail =="; tail -60 "$GITHUB_WORKSPACE/ios-build.log"; } > ios.txt 2>/dev/null || echo "no log" > ios.txt
           git init -q && git checkout -q -b ci-out-ios && git add -A
           git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "ios ${{ github.sha }}"
           git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" ci-out-ios
