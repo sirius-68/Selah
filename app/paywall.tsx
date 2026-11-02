@@ -68,7 +68,7 @@ export default function Paywall() {
         <Perk k="dusk" icon="spark" title="Unlimited Guide affirmations" sub="Personal affirmations for whatever you’re carrying today." />
         <Perk k="night" icon="moon" title="Every Sleep Scape" sub="Ocean, hymn pad, deep rest, and your own uploaded audio." />
         <Perk k="dawn" icon="book" title="All affirmation packs included" sub="Every 7-day pack and journal, now and as new ones arrive." />
-        <Perk k="day" icon="layers" title="Your own widget design" sub="Choose the colour, words and timing of your home-screen widget." />
+        <Perk k="day" icon="layers" title="Home and lock-screen widgets" sub="Fresh affirmations on your phone all day." />
       </View>
       <View style={{ gap: 10 }}>{(Object.entries(PLANS) as [('year' | 'month'), any][]).map(([id, p]) => { const on = plan === id; return (
         <Pressable key={id} accessibilityRole="radio" accessibilityState={{ checked: on }} onPress={() => { tap(); setPlan(id); }} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, borderRadius: 24, backgroundColor: c.surface, borderWidth: 2, borderColor: on ? c.accent : 'transparent' }}>

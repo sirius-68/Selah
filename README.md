@@ -37,13 +37,6 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on every push to `main`:
 - **android**: builds a release APK and publishes it on the **Android preview** release.
 - **ios**: builds the app for the iOS simulator.
 
-## Notifications and widgets
-
-- **Notifications screen** (bell in the top bar): what is coming up in the next 7 days, every reminder that arrived in the last 30 days (kept on the device, with an unread count on the bell), and switches for quiet times, prayer watches, Break free and the early heads-up. Reminders still land in this list when system notifications are blocked.
-- **Home-screen widget**, free for everyone, with custom designs on Selah Plus. The app writes the words for the widget to device storage; the widget picks a new one each hour, 3 hours, morning and evening, or day.
-  - Android: `react-native-android-widget`. The widget is drawn by `src/widget/VerseWidget.tsx`, registered in `index.ts`, and refreshed every 30 minutes even when Selah is closed.
-  - iOS: a WidgetKit extension in `targets/widget` (built by `@bacons/apple-targets`), sharing data through the App Group `group.app.selah.prayer`. Home screen (small, medium, large) and lock screen sizes. Before a signed build, set `ios.appleTeamId` in `app.json` and enable the App Group for both the app and the widget in your Apple developer account.
-
 ## Supabase setup
 
 1. Run `supabase/setup.sql` in the Supabase SQL editor.

@@ -95,7 +95,7 @@ export default function Journal() {
   }
   return (
     <View style={{ flex: 1 }}>
-      <Page title="" right={<View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 7, paddingLeft: 10, paddingRight: 14, borderRadius: 999, backgroundColor: '#F4F01E' }}><Icon name="journal" size={18} color="#17101F" /><Txt w={600} size={13} color="#17101F" tr={false}>{t(all.length + (all.length === 1 ? ' entry' : ' entries'))}</Txt></View>} bottom={110}>
+      <Page title="" back={false} right={<View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 7, paddingLeft: 10, paddingRight: 14, borderRadius: 999, backgroundColor: '#F4F01E' }}><Icon name="journal" size={18} color="#17101F" /><Txt w={600} size={13} color="#17101F" tr={false}>{t(all.length + (all.length === 1 ? ' entry' : ' entries'))}</Txt></View>} bottom={110}>
         <Txt tr={false} style={{ fontFamily: F[300], fontSize: 42, lineHeight: 44, letterSpacing: -1.4, marginTop: 4 }}>{t('Write it down,') + '\n' + t('keep it') + ' '}<Txt w={700} size={42} tr={false}>{t('close.')}</Txt></Txt>
         <Txt muted size={16} style={{ marginTop: 10, marginBottom: 18 }}>{st ? `You’ve written ${st} day${st === 1 ? '' : 's'} in a row.` : 'A quiet place for prayers, thoughts and thanks.'}</Txt>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, minHeight: 52, paddingHorizontal: 18, borderWidth: 1.5, borderColor: '#F4F01E', borderRadius: 999 }}>

@@ -13,16 +13,9 @@
       "bundleIdentifier": "app.selah.prayer",
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": [
-          "audio"
-        ],
+        "UIBackgroundModes": ["audio"],
         "NSFaceIDUsageDescription": "Selah uses Face ID to unlock the app when you turn on the passcode lock.",
         "ITSAppUsesNonExemptEncryption": false
-      },
-      "entitlements": {
-        "com.apple.security.application-groups": [
-          "group.app.selah.prayer"
-        ]
       }
     },
     "android": {
@@ -68,15 +61,11 @@
       ],
       [
         "expo-local-authentication",
-        {
-          "faceIDPermission": "Selah uses Face ID to unlock the app when you turn on the passcode lock."
-        }
+        { "faceIDPermission": "Selah uses Face ID to unlock the app when you turn on the passcode lock." }
       ],
       [
         "expo-image-picker",
-        {
-          "photosPermission": "Selah uses your photos only when you pick a background for a share card."
-        }
+        { "photosPermission": "Selah uses your photos only when you pick a background for a share card." }
       ],
       [
         "expo-media-library",
@@ -88,31 +77,7 @@
       ],
       [
         "expo-audio",
-        {
-          "microphonePermission": false
-        }
-      ],
-      "@bacons/apple-targets",
-      [
-        "react-native-android-widget",
-        {
-          "widgets": [
-            {
-              "name": "Selah",
-              "label": "Selah",
-              "description": "A scripture affirmation that changes through the day",
-              "minWidth": "250dp",
-              "minHeight": "110dp",
-              "targetCellWidth": 4,
-              "targetCellHeight": 2,
-              "maxResizeWidth": "500dp",
-              "maxResizeHeight": "400dp",
-              "resizeMode": "horizontal|vertical",
-              "previewImage": "./assets/images/widget-preview.png",
-              "updatePeriodMillis": 1800000
-            }
-          ]
-        }
+        { "microphonePermission": false }
       ]
     ],
     "experiments": {

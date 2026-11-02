@@ -30,7 +30,7 @@ export default function Guide() {
   };
   const rr = res ? parseRef(res.ref) : null, saved = res ? S.saved.some(s => s.id === res.id) : false;
   return (
-    <Page title="Your guide" scrollRef={sv} right={<View style={{ backgroundColor: '#F4F01E', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 999 }}><Txt w={700} size={12.5} color="#17101F">Preview</Txt></View>}>
+    <Page title="Your guide" back={false} scrollRef={sv} right={<View style={{ backgroundColor: '#F4F01E', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 999 }}><Txt w={700} size={12.5} color="#17101F">Preview</Txt></View>}>
       <Title a="How is your" b="heart today?" style={{ marginTop: 6, marginBottom: 20 }} />
       <Txt w={600} size={14} style={{ marginBottom: 10 }}>I’m feeling</Txt>
       <Chips style={{ marginBottom: 20 }}>{Object.keys(MOODS).map(m => <Chip key={m} label={m} on={mood === m} onPress={() => setMood(mood === m ? '' : m)} />)}</Chips>

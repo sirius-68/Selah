@@ -35,16 +35,11 @@ state = {
   'jn': {'books': [{'id': 'b1', 'name': 'Daily journal', 'icon': 'sun', 'c': 'butter', 'at': now}, {'id': 'b2', 'name': 'Prayers', 'icon': 'heart', 'c': 'rose', 'at': now}],
          'notes': [{'id': 'n1', 'book': 'b1', 'title': 'Grateful', 'body': 'Thank you for this morning.', 'c': 'butter', 'pin': False, 'mood': 'Grateful', 'tags': ['thanks'], 'verse': '', 'items': [], 'created': now, 'updated': now, 'trash': None}]},
 }
-inbox = [
-  {'at': now - 3600000, 'title': 'It’s time: Morning prayer', 'body': 'I receive the peace of Christ (John 14:27)', 'kind': 'goal', 'id': 'g1', 'key': 'goal:g1:1', 'read': False},
-  {'at': now - 5 * 3600000, 'title': 'It’s time to watch and pray', 'body': 'Fourth watch, 60 minutes', 'kind': 'watch', 'id': 'w1', 'key': 'watch:w1:1', 'read': False},
-  {'at': now - DAY - 3600000, 'title': 'Time for your evening check-in', 'body': 'Pornography. Two questions and a short note.', 'kind': 'free', 'id': 't1', 'key': 'free:t1:1', 'read': True},
-]
 routes = [('01-today', '/'), ('02-explore', '/explore'), ('03-goals', '/goals'), ('04-saved', '/saved'), ('05-bible', '/bible'),
           ('06-settings', '/settings'), ('07-ur', '/ur'), ('08-ur-edit', '/ur/edit?k=session&id=u1'), ('09-insights', '/insights'),
           ('10-journal', '/journal'), ('11-journal-edit', '/journal/edit?id=n1'), ('12-free', '/free?id=t1'), ('13-free-check', '/free/check?id=t1'),
           ('14-free-sos', '/free/sos?id=t1'), ('15-free-wizard', '/free/wizard'), ('16-guide', '/guide'), ('17-audio', '/audio'),
-          ('18-packs', '/packs'), ('19-pack', '/pack?id=money'), ('20-day', '/day?p=money&d=2'), ('21-widgets', '/widgets'), ('22-paywall', '/paywall'), ('23-notifications', '/notifications')]
+          ('18-packs', '/packs'), ('19-pack', '/pack?id=money'), ('20-day', '/day?p=money&d=2'), ('21-widgets', '/widgets'), ('22-paywall', '/paywall')]
 errs = []
 with sync_playwright() as p:
     br = p.chromium.launch()
@@ -53,7 +48,6 @@ with sync_playwright() as p:
         c.route('https://images.unsplash.com/**', lambda r: r.abort())
         if seed is not None:
             c.add_init_script('localStorage.setItem("selah.v1", %s)' % json.dumps(json.dumps(seed)))
-            if seed: c.add_init_script('localStorage.setItem("selah.inbox", %s)' % json.dumps(json.dumps(inbox)))
         return c
     c = ctx(state)
     for name, path in routes:
@@ -65,10 +59,6 @@ with sync_playwright() as p:
             if h > 844:
                 pg.evaluate('[...document.querySelectorAll("*")].filter(e=>{const s=getComputedStyle(e);return (s.overflowY=="auto"||s.overflowY=="scroll")&&e.scrollHeight>e.clientHeight}).forEach(e=>e.scrollTop=e.scrollHeight/2.2)')
                 pg.wait_for_timeout(500); pg.screenshot(path=f'{out}/{name}-b.png')
-            if name == '01-today':
-                # tapping a quiet time in the schedule should scroll to its card
-                pg.evaluate('[...document.querySelectorAll("*")].forEach(e=>{if(e.scrollTop)e.scrollTop=0})'); pg.wait_for_timeout(300)
-                pg.get_by_text('Find peace').first.click(); pg.wait_for_timeout(900); pg.screenshot(path=f'{out}/01-today-tap.png')
         except Exception as e:
             errs.append(f'{name}: {e}')
         pg.close()

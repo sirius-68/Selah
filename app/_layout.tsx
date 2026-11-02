@@ -23,7 +23,6 @@ import { LockHost, lockOnResume, lockOnStart } from '@/features/lock';
 import { NowPlaying } from '@/features/NowPlaying';
 import { bootSync } from '@/lib/sync';
 import { bootReminders } from '@/lib/notify';
-import { bootWidget } from '@/lib/widget';
 import { setSoundToast } from '@/lib/sound';
 import { registerAccountUI } from '@/features/accountSheets';
 
@@ -38,7 +37,7 @@ export default function Root() {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     (async () => {
-      await Promise.all([loadState(), kvLoad(['selah.sync', 'selah.sb', 'selah.tracks', 'selah.notif', 'selah.inbox', 'selah.nprefs'])]);
+      await Promise.all([loadState(), kvLoad(['selah.sync', 'selah.sb', 'selah.tracks', 'selah.notif'])]);
       try { await initBible(S.settings.ver); } catch (e) { }
       buildItems();
       setReady(true);
@@ -57,7 +56,7 @@ function App() {
     setSoundToast(toast);
     registerAccountUI();
     lockOnStart();
-    bootSync(); bootReminders(); bootWidget();
+    bootSync(); bootReminders();
     const sub = AppState.addEventListener('change', st => lockOnResume(st));
     return () => sub.remove();
   }, []);
@@ -71,7 +70,6 @@ function App() {
           <Stack.Screen name="settings" options={{ animation: 'slide_from_bottom' }} />
           <Stack.Screen name="paywall" options={{ animation: 'slide_from_bottom' }} />
           <Stack.Screen name="card" options={{ animation: 'slide_from_bottom' }} />
-          <Stack.Screen name="notifications" />
         </Stack>
         <NowPlaying />
         {!S.user ? <AuthFlow /> : null}

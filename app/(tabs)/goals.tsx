@@ -6,7 +6,7 @@ import { daysLabel, dayWord, nextOcc, pevery } from '@/lib/affirm';
 import { hash, dateKey } from '@/lib/util';
 import { fmtDate, fmtTime, t } from '@/lib/i18n';
 import { TabScreen } from '@/ui/TabScreen';
-import { Btn, Switch, Title, Txt, useInk, useC } from '@/ui/kit';
+import { Go, Switch, Title, Txt, useInk, useC } from '@/ui/kit';
 import { Tile, Tiles, SubTxt } from '@/features/blocks';
 import { openGoalEditor, PrayerCalendar } from '@/features/goals';
 import { requestPerm, notifState } from '@/lib/notify';
@@ -19,7 +19,7 @@ export default function Goals() {
     <TabScreen>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', paddingTop: 14, paddingBottom: 18 }}>
         <Title a="Your quiet" b="times." />
-        <Btn kind="primary" sm icon="plus" label="New" a11y="New quiet time" onPress={() => openGoalEditor()} style={{ marginBottom: 6 }} />
+        <Go icon="plus" a11y="New goal" onPress={() => openGoalEditor()} style={{ backgroundColor: c.pill }} />
       </View>
       <GoalsBanner />
       {!S.goals.length ? (

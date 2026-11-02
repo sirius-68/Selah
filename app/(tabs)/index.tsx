@@ -1,6 +1,6 @@
-import React, { useEffect, useReducer, useRef } from 'react';
-import { Linking, Pressable, ScrollView, View } from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
+import React, { useEffect, useReducer } from 'react';
+import { Pressable, View } from 'react-native';
+import { router } from 'expo-router';
 import { useStore, mutate } from '@/lib/store';
 import { DEMO, greet, isPlus } from '@/lib/affirm';
 import { agendaItems, fmtLen, weekStats } from '@/lib/ur';
@@ -21,27 +21,22 @@ export default function Today() {
   const [, f] = useReducer(x => x + 1, 0); useEffect(() => { refreshPerm(); return onAlerts(f); }, []);
   const now = new Date(); const [a, b] = greet();
   const goals = [...S.goals].sort((x, y) => (x.time || '').localeCompare(y.time || ''));
-  // tapping a quiet time in the schedule (or its reminder) scrolls to its card
-  const sv = useRef<ScrollView>(null), pos = useRef<Record<string, number>>({});
-  const show = (id: string) => { const y = pos.current[id]; if (y != null) sv.current?.scrollTo({ y: Math.max(0, y - 12), animated: true }); };
-  const { g: gp } = useLocalSearchParams<{ g?: string }>();
-  useEffect(() => { if (!gp) return; const tm = setTimeout(() => { show(gp); router.setParams({ g: undefined } as any); }, 350); return () => clearTimeout(tm); }, [gp]);
   return (
-    <TabScreen scrollRef={sv}>
+    <TabScreen>
       <View style={{ paddingTop: 14, paddingBottom: 22 }}>
         <Txt muted size={15} tr={false} style={{ marginBottom: 10 }}>{fmtDate(now, { weekday: 'long', month: 'long', day: 'numeric' })}</Txt>
         <Title a={a} b={b} />
       </View>
       <NotifBanner />
       <WeeklyCard />
-      <Agenda onGoal={show} />
+      <Agenda />
       {!goals.length ? (
         <View style={{ marginBottom: 30 }}>
           <Txt muted size={16} lh={1.5} style={{ marginBottom: 18 }}>Pick what you want to grow in and when you pray. Selah brings you a scripture affirmation at that time.</Txt>
           <Btn kind="primary" icon="plus" label="Create my first goal" style={{ alignSelf: 'flex-start' }} onPress={() => openGoalEditor()} />
         </View>
       ) : null}
-      {goals.length ? goals.map(g => <View key={g.id} onLayout={e => { pos.current[g.id] = e.nativeEvent.layout.y; }}><GoalBlock g={g} /></View>) : <GoalBlock g={DEMO} />}
+      {goals.length ? goals.map(g => <GoalBlock key={g.id} g={g} />) : <GoalBlock g={DEMO} />}
       {!isPlus() ? <Cont k="night" v={1} photo="night" title={'Go deeper\nevery day.'} small="Selah Plus" onPress={() => router.push('/paywall')} /> : null}
     </TabScreen>
   );
@@ -62,7 +57,6 @@ function NotifBanner() {
         </> : <>
           <Txt w={700} size={15}>Notifications are blocked</Txt>
           <Txt size={15} style={{ marginTop: 2 }}>Reminders still show here while Selah is open. To get alerts on your phone, allow notifications for Selah in your phone’s settings.</Txt>
-          <Btn sm label="Open phone settings" style={{ alignSelf: 'flex-start', marginTop: 10 }} onPress={() => Linking.openSettings().catch(() => {})} />
         </>}
       </View>
       {st !== 'undetermined' ? <Pressable accessibilityLabel={t('Hide for a week')} onPress={() => mutate(s => { s.noticeHidden = Date.now(); })} style={{ width: 40, height: 40, alignItems: 'center', justifyContent: 'center' }}><Icon name="x" color={c.muted} /></Pressable> : null}
@@ -82,13 +76,13 @@ function WeeklyCard() {
   );
 }
 
-function Agenda({ onGoal }: { onGoal: (id: string) => void }) {
+function Agenda() {
   const c = useC(); useStore();
   const its = agendaItems(); const nowHM = pad(new Date().getHours()) + ':' + pad(new Date().getMinutes());
   if (!its.length) return <Cont k="night" v={2} photo="night" small="Nothing scheduled today" title="Enter the upper room" onPress={() => go('/ur')} style={{ marginBottom: 28 }} />;
   const nextIdx = its.findIndex(x => !x.done && (!x.t || x.t >= nowHM));
   const open = (x: typeof its[0]) => {
-    if (x.kind === 'goal') return onGoal(x.id); // the goal's card is further down this page
+    if (x.kind === 'goal') return; // the goal is on this page
     if (x.kind === 'watch') startPrayer('watch', x.id);
     else if (x.kind === 'free') go('/free', { id: x.id });
     else go('/day', { p: x.id, d: String(x.d) });
@@ -111,12 +105,12 @@ function Agenda({ onGoal }: { onGoal: (id: string) => void }) {
                   {x.done ? <Icon name="check" size={13} color="#06341B" stroke={2.8} /> : null}
                 </View>
               </View>
-              <Pressable accessibilityRole="button" disabled={x.done && x.kind !== 'goal'} onPress={() => { tap(); open(x); }} style={{ flex: 1, marginBottom: 8, flexDirection: 'row', alignItems: 'center', gap: 10, padding: 14, borderRadius: 20, backgroundColor: next ? c.surface : x.done ? 'transparent' : c.surface, borderWidth: next ? 2 : 0, borderColor: '#F4F01E', opacity: x.done ? 0.6 : 1 }}>
+              <Pressable disabled={x.done || x.kind === 'goal'} onPress={() => { tap(); open(x); }} style={{ flex: 1, marginBottom: 8, flexDirection: 'row', alignItems: 'center', gap: 10, padding: 14, borderRadius: 20, backgroundColor: next ? c.surface : x.done ? 'transparent' : c.surface, borderWidth: next ? 2 : 0, borderColor: '#F4F01E', opacity: x.done ? 0.6 : 1 }}>
                 <View style={{ flex: 1 }}>
                   <Txt w={700} size={15.5} tr={false} style={x.done ? { textDecorationLine: 'line-through' } : undefined}>{x.title}</Txt>
                   <Txt muted size={13} tr={false}>{x.sub + (x.done ? ', ' + t('done') : '')}</Txt>
                 </View>
-                {!x.done ? <View style={{ paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999, backgroundColor: c.pill }}><Txt w={700} size={13} color={c.onPill}>{x.cta}</Txt></View> : null}
+                {!x.done && x.kind !== 'goal' ? <View style={{ paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999, backgroundColor: c.pill }}><Txt w={700} size={13} color={c.onPill}>{x.cta}</Txt></View> : null}
               </Pressable>
             </View>
           );

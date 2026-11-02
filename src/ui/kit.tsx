@@ -18,13 +18,13 @@ export function InkScope({ color, children }: { color: string; children: ReactNo
 
 export const tap = () => { Haptics.selectionAsync().catch(() => {}); };
 
-type TxtProps = { children?: ReactNode; w?: number; size?: number; lh?: number; color?: string; muted?: boolean; style?: StyleProp<TextStyle>; serif?: boolean; hand?: boolean; tr?: boolean; numberOfLines?: number; center?: boolean; ls?: number; selectable?: boolean; onPress?: () => void; mx?: number };
+type TxtProps = { children?: ReactNode; w?: number; size?: number; lh?: number; color?: string; muted?: boolean; style?: StyleProp<TextStyle>; serif?: boolean; hand?: boolean; tr?: boolean; numberOfLines?: number; center?: boolean; ls?: number; selectable?: boolean; onPress?: () => void };
 /* Text in Bricolage Grotesque. Plain strings are translated unless tr={false}. */
-export function Txt({ children, w = 400, size = 16, lh, color, muted, style, serif, hand, tr = true, numberOfLines, center, ls, selectable, onPress, mx }: TxtProps) {
+export function Txt({ children, w = 400, size = 16, lh, color, muted, style, serif, hand, tr = true, numberOfLines, center, ls, selectable, onPress }: TxtProps) {
   const c = useC(); const ink = useInk();
   const kids = tr ? React.Children.map(children, ch => typeof ch === 'string' ? t(ch) : ch) : children;
   return (
-    <Text onPress={onPress} selectable={selectable} numberOfLines={numberOfLines} allowFontScaling maxFontSizeMultiplier={mx || (size >= 30 ? 1.3 : 1.7)}
+    <Text onPress={onPress} selectable={selectable} numberOfLines={numberOfLines} allowFontScaling
       style={[{ fontFamily: serif ? SERIF : hand ? HAND : F[w] || F[400], fontSize: size, lineHeight: lh ? Math.round(lh * size) : undefined, color: color || (muted ? c.muted : ink), letterSpacing: ls != null ? ls * size : undefined, textAlign: center ? 'center' : undefined }, style]}>
       {kids}
     </Text>
