@@ -87,7 +87,7 @@ export default function Explore() {
       </View>
       <View style={{ marginTop: 6 }}>
         <Txt w={700} size={21} ls={-0.02} style={{ marginBottom: 12 }}>Make it yours</Txt>
-        <XRow k="day" icon="phone" title="Widgets" onPress={() => go('/widgets')} status={t('Design your home and lock screen')} pill={isPlus() ? undefined : 'Plus'} />
+        <XRow k="day" icon="phone" title="Widgets" onPress={() => go('/widgets')} status={t('Put a verse on your home screen')} />
       </View>
     </TabScreen>
   );

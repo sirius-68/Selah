@@ -24,7 +24,7 @@ function PillBar({ state, navigation }: BottomTabBarProps) {
               onPress={() => { tap(); const r = state.routes.find(x => x.name === name); if (!r) return; const ev = navigation.emit({ type: 'tabPress', target: r.key, canPreventDefault: true }); if (!on && !ev.defaultPrevented) navigation.navigate(name as never); }}
               style={{ height: 58, minWidth: 58, paddingHorizontal: on ? 10 : 6, borderRadius: 999, alignItems: 'center', justifyContent: 'center', gap: 3, backgroundColor: on ? c.navact : 'transparent' }}>
               <Icon name={icon} size={22} color={fg} />
-              <Txt w={600} size={10.5} color={fg} numberOfLines={1}>{label}</Txt>
+              <Txt w={600} size={11.5} color={fg} numberOfLines={1} mx={1.15}>{label}</Txt>
             </Pressable>
           );
         })}

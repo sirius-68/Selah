@@ -17,7 +17,7 @@ export default function UpperRoom() {
   const S = useStore(); const c = useC();
   const st = weekStats(0), nw = nextWatch();
   return (
-    <Page title="" back={false} right={<Btn sm icon="goals" label="Insights" onPress={() => go('/insights', { o: '0' })} />}>
+    <Page title="" right={<Btn sm icon="goals" label="Insights" onPress={() => go('/insights', { o: '0' })} />}>
       <Title a="The upper" b="room." />
       <Txt muted size={16} style={{ marginTop: 6, marginBottom: 18 }}>“Enter into thy closet, and when thou hast shut thy door, pray.” Matthew 6:6</Txt>
       <Block k="night" v={1} photo="night" radius={36} onPress={() => startPrayer('session')} a11y="Start praying now" style={{ padding: 22, paddingTop: 18, paddingBottom: 26 }} art={{ size: 440, right: -150, top: -140 }}>

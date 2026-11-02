@@ -22,7 +22,7 @@ export default function Audio() {
   const cur = scapeInfo(S.scape.id), plus = isPlus(), mine = myTracks();
   const toggle = () => { if (SND.playing) stopScape(); else { if (!cur.free && !cur.user && !plus) { router.push('/paywall'); return; } if (cur.user && !plus) { router.push('/paywall'); return; } playScape(cur.id); } };
   return (
-    <Page title="Sleep Scapes" back={false}>
+    <Page title="Sleep Scapes">
       <Title a="Rest in" b="His word." style={{ marginTop: 6, marginBottom: 20 }} />
       <Block k={cur.k} v={2} photo={cur.user ? 'night' : PH_SCAPE[cur.id] || 'night'} radius={36} style={{ padding: 22, paddingTop: 18, paddingBottom: 24 }} art={{ size: 440, right: -150, top: -140 }}>
         <BTag label={SND.playing ? 'Now playing' : 'Ready'} />

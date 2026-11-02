@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { router } from 'expo-router';
 import { useStore, mutate } from '@/lib/store';
 import { CT, CT_KEYS, ROT, ThemeKey, WDEF } from '@/lib/content';
@@ -10,8 +10,8 @@ import { SERIF } from '@/lib/theme';
 import { Page, toast } from '@/ui/overlay';
 import { Btn, Chip, Chips, Field, Seg, Title, Txt, useC } from '@/ui/kit';
 import { Ribbon } from '@/ui/Ribbon';
-import { Pressable } from 'react-native';
 import { syncWidget } from '@/lib/widget';
+import { Icon } from '@/ui/Icon';
 
 export default function Widgets() {
   const S = useStore(); const c = useC();
@@ -22,7 +22,7 @@ export default function Widgets() {
   const main = w.content === 'verse' ? '“' + vt + '”' : t(it.a), sub = w.content === 'both' ? '“' + vt + '”' : '';
   const T = CT[w.style as ThemeKey] || CT.dusk, serif = w.font === 'serif';
   return (
-    <Page title="Widgets" back={false} right={isPlus() ? null : <View style={{ backgroundColor: '#B6AEFF', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 999 }}><Txt w={700} size={12.5} color="#1E1446">Plus</Txt></View>}>
+    <Page title="Widgets">
       <Title a="Keep His word" b="in sight." style={{ marginTop: 6, marginBottom: 18 }} />
       <View style={{ height: 400, borderRadius: 36, backgroundColor: '#2A1A3A', padding: 18, marginBottom: 20, overflow: 'hidden' }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 14 }}><Txt w={600} size={13} color="#fff" tr={false}>{fmtClockTime(new Date()).replace(/\s?[AP]M/i, '')}</Txt><Txt size={10} color="#fff" tr={false}>●●●</Txt></View>
@@ -49,13 +49,36 @@ export default function Widgets() {
         )}
         {w.size !== 'lock' ? <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 18, marginTop: 20 }}>{Array.from({ length: 8 }, (_, k) => <View key={k} style={{ width: 56, height: 56, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.18)' }} />)}</View> : null}
       </View>
-      <Field label="Size"><Seg options={[['small', 'Small'], ['medium', 'Medium'], ['lock', 'Lock screen']]} value={w.size} onChange={v => set({ size: v })} /></Field>
-      {w.size === 'lock' ? null : <Field label="Colour"><View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap' }}>{CT_KEYS.map(k => <Pressable key={k} accessibilityLabel={CT[k].n} onPress={() => set({ style: k })} style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: CT[k].bg, borderWidth: 3, borderColor: w.style === k ? c.ink : c.surface }} />)}</View></Field>}
+      <HowTo />
+      <Txt w={700} size={20} ls={-0.02} style={{ marginTop: 26, marginBottom: 6 }}>Design</Txt>
+      <Txt muted size={14.5} lh={1.4} style={{ marginBottom: 16 }}>{isPlus() ? 'Choose how your widget looks, then save. It updates on your home screen.' : 'The widget is free. Try a look here; Selah Plus lets you keep it.'}</Txt>
+      <Field label="Preview as"><Seg options={(Platform.OS === 'android' ? [['small', 'Small'], ['medium', 'Medium']] : [['small', 'Small'], ['medium', 'Medium'], ['lock', 'Lock screen']]) as [string, string][]} value={w.size} onChange={v => set({ size: v })} /></Field>
+      {w.size === 'lock' ? null : <Field label="Colour"><View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap' }}>{CT_KEYS.map(k => <Pressable key={k} accessibilityRole="radio" accessibilityState={{ checked: w.style === k }} accessibilityLabel={t(CT[k].n)} onPress={() => set({ style: k })} style={{ width: 48, height: 48, borderRadius: 24, backgroundColor: CT[k].bg, borderWidth: 3, borderColor: w.style === k ? c.ink : c.surface }} />)}</View></Field>}
       <Field label="Show"><Seg options={[['aff', 'Affirmation'], ['verse', 'Verse'], ['both', 'Both']]} value={w.content} onChange={v => set({ content: v })} /></Field>
       <Field label="New words"><Chips>{Object.entries(ROT).map(([k, l]) => <Chip key={k} label={l} on={w.rotate === k} onPress={() => set({ rotate: k })} />)}</Chips></Field>
       <Field label="Typeface"><Seg options={[['sans', 'Sans'], ['serif', 'Serif']]} value={w.font} onChange={v => set({ font: v })} /></Field>
-      <Btn kind="primary" block icon={isPlus() ? undefined : 'lock'} label={isPlus() ? 'Save widget' : 'Save with Selah Plus'} onPress={() => { if (!isPlus()) { router.push('/paywall'); toast('Widgets come with Selah Plus'); return; } mutate(s => { s.widget = { ...w }; }); syncWidget(); toast('Widget saved'); }} />
-      <Txt muted size={13.5} center style={{ marginTop: 12 }}>On Android, long-press your home screen, choose Widgets and add Selah. Your saved design is used there.</Txt>
+      <Btn kind="primary" block icon={isPlus() ? 'check' : 'lock'} label={isPlus() ? 'Save widget' : 'Keep this design with Selah Plus'} onPress={() => { if (!isPlus()) { router.push('/paywall'); return; } mutate(s => { s.widget = { ...w }; }); syncWidget(); toast('Widget saved. It updates on your home screen.'); }} />
     </Page>
+  );
+}
+
+/* plain steps for adding the widget, for this phone */
+function HowTo() {
+  const c = useC();
+  const steps = Platform.OS === 'ios'
+    ? ['Touch and hold an empty spot on your Home Screen until the apps jiggle.', 'Tap Edit, then Add Widget, in the top corner.', 'Search for Selah, pick a size and tap Add Widget.']
+    : Platform.OS === 'android'
+      ? ['Touch and hold an empty spot on your home screen.', 'Tap Widgets.', 'Find Selah, then drag it onto your home screen.']
+      : ['Install Selah on your phone.', 'Add the Selah widget from your home screen.', 'It shows a new word through the day.'];
+  return (
+    <View style={{ padding: 18, borderRadius: 26, backgroundColor: c.surface }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 12 }}><Icon name="phone" color={c.ink} /><Txt w={700} size={17}>Add it to your home screen</Txt></View>
+      {steps.map((x, i) => (
+        <View key={i} style={{ flexDirection: 'row', gap: 12, marginBottom: i < steps.length - 1 ? 12 : 0 }}>
+          <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: c.pill, alignItems: 'center', justifyContent: 'center' }}><Txt w={700} size={14} color={c.onPill} tr={false}>{String(i + 1)}</Txt></View>
+          <Txt size={15.5} lh={1.4} style={{ flex: 1 }}>{x}</Txt>
+        </View>
+      ))}
+    </View>
   );
 }

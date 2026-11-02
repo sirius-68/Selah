@@ -38,7 +38,7 @@ export default function Insights() {
       <Title a="Your week" b="with God." style={{ marginBottom: 14 }} />
       <Chips style={{ marginBottom: 6 }}>{[[0, 'This week'], [-1, 'Last week'], [-2, '2 weeks ago']].map(([o, l]) => <Chip key={o} label={l as string} on={off === o} onPress={() => setOff(o as number)} />)}</Chips>
       <Txt muted size={13.5} tr={false} style={{ marginBottom: 16, marginTop: 6 }}>{fmtDate(ws, { month: 'short', day: 'numeric' }) + ' – ' + fmtDate(we, { month: 'short', day: 'numeric' })}</Txt>
-      <Block k="night" v={0} radius={36} style={{ padding: 22 }} art={{ size: 440, right: -150, top: -140 }}>
+      <Block k="night" v={0} radius={36} style={{ padding: 22 }} art={{ size: 380, right: -210, top: -190 }}>
         <BTag label="Prayer" />
         <Txt w={300} size={52} ls={-0.04} tr={false} style={{ marginTop: 18 }}>{fmtLen(st.secs)}</Txt>
         <Delta v={delta(Math.round(st.secs), Math.round(pv.secs), 'min')} />
