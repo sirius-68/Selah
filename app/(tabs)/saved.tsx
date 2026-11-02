@@ -11,7 +11,7 @@ import { shareText, openCard } from '@/lib/share';
 import { TabScreen } from '@/ui/TabScreen';
 import { Chip, Chips, Empty, Mini, Title, Txt, useC } from '@/ui/kit';
 import { Icon } from '@/ui/Icon';
-import { toast, go } from '@/ui/overlay';
+import { toastUndo, go } from '@/ui/overlay';
 import { openNote } from '@/features/bibleSheets';
 import { frName } from '@/lib/free';
 
@@ -20,7 +20,11 @@ const HLC = ['#F4F01E', '#23C25F', '#B6AEFF', '#FFB0D4'];
 
 export default function Saved() {
   const S = useStore(); const c = useC(); const [f, setF] = useState('all');
-  const remove = (kind: string, id: string) => { mutate(s => { if (kind === 'aff') s.saved = s.saved.filter(x => x.id !== id); else if (kind === 'marks') s.marks = s.marks.filter(k => k !== id); else if (kind === 'hl') delete s.hl[id]; else if (kind === 'notes') delete s.notes[id]; }); toast('Removed'); };
+  const remove = (kind: string, id: string) => {
+    const before = JSON.parse(JSON.stringify({ saved: S.saved, marks: S.marks, hl: S.hl, notes: S.notes }));
+    mutate(s => { if (kind === 'aff') s.saved = s.saved.filter(x => x.id !== id); else if (kind === 'marks') s.marks = s.marks.filter(k => k !== id); else if (kind === 'hl') delete s.hl[id]; else if (kind === 'notes') delete s.notes[id]; });
+    toastUndo('Removed', () => mutate(s => { if (kind === 'aff') s.saved = before.saved; else if (kind === 'marks') s.marks = before.marks; else if (kind === 'hl') s.hl = before.hl; else if (kind === 'notes') s.notes = before.notes; }));
+  };
   const out: React.ReactNode[] = [];
   if (f === 'all' || f === 'aff') [...S.saved].sort((a, b) => b.at - a.at).forEach((s, i) => {
     const d = affData(s), k = QCOL[i % QCOL.length], T = CT[k];

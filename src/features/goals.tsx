@@ -1,5 +1,5 @@
 /* Goal block (Today), goal editor sheet, and the prayer calendar. */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { S, mutate, Goal, useStore } from '../lib/store';
 import { DNAMES, THEMES, TCOL } from '../lib/content';
@@ -15,7 +15,7 @@ import { Icon } from '../ui/Icon';
 import { closeSheet, openSheet, SheetTitle, toast } from '../ui/overlay';
 import { AffCard } from './blocks';
 import { TimeField } from './TimeField';
-import { requestPerm, notifState } from '../lib/notify';
+import { requestPerm, notifState, prefs } from '../lib/notify';
 import { useTick } from '../lib/hooks';
 
 function Act({ icon, label, on, onPress }: { icon: string; label: string; on?: boolean; onPress: () => void }) {
@@ -54,7 +54,7 @@ export function GoalBlock({ g }: { g: Goal }) {
       </View>
       {g.id === '_' ? null : (
         <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center', marginTop: 16 }}>
-          <Btn kind={done ? 'leaf' : 'primary'} icon="check" label={done ? 'Done for today' : 'I prayed today'} style={{ flex: 1 }} onPress={() => { if (prayedToggle(g.id)) toast('Well done. Peace be with you.'); }} />
+          <Btn kind={done ? 'leaf' : 'primary'} icon="check" label={done ? 'Done for today' : 'I prayed today'} style={{ flex: 1 }} a11y={done ? t('Done for today. Tap to undo.') : undefined} onPress={() => { toast(prayedToggle(g.id) ? 'Well done. Peace be with you.' : 'Unmarked for today'); }} />
           {st ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 52, paddingHorizontal: 16, borderRadius: 999, backgroundColor: c.surface2 }}>
             <Icon name="flame" size={18} color="#FF8A5B" fill /><Txt w={600} size={14.5}>{st + (st === 1 ? ' day' : ' days')}</Txt>
           </View> : null}
@@ -71,6 +71,8 @@ function GoalEditor({ g, tpl }: { g: Goal | null; tpl?: Partial<Goal> }) {
   const d0: Goal = g ? { ...g } : Object.assign({ id: '', name: '', theme: 'Faith', period: 'day', time: '06:30', days: [0, 1, 2, 3, 4, 5, 6], on: true }, tpl || {});
   const [d, setD] = useState<Goal>(d0);
   const set = (p: Partial<Goal>) => setD(x => ({ ...x, ...p }));
+  const [armed, setArmed] = useState(false);
+  useEffect(() => { if (!armed) return; const tm = setTimeout(() => setArmed(false), 4000); return () => clearTimeout(tm); }, [armed]);
   const save = () => {
     if (!d.days.length) { toast('Pick at least one day'); return; }
     const name = d.name.trim() || (d.theme === 'any' ? t('My quiet time') : t(d.theme));
@@ -86,9 +88,9 @@ function GoalEditor({ g, tpl }: { g: Goal | null; tpl?: Partial<Goal> }) {
       <Field label="Get a new affirmation every"><Seg options={[['day', 'Day'], ['week', 'Week'], ['month', 'Month'], ['year', 'Year']]} value={d.period} onChange={v => set({ period: v })} /></Field>
       <Field label="Time you pray or meditate"><TimeField value={d.time || '06:30'} onChange={v => set({ time: v })} /></Field>
       <Field label="Days"><DayDots days={d.days} onChange={days => set({ days })} /></Field>
-      <Txt muted size={14} style={{ marginTop: -6, marginBottom: 18 }}>Selah reminds you 30 minutes before and again at this time.</Txt>
+      <Txt muted size={14} style={{ marginTop: -6, marginBottom: 18 }}>{prefs().early ? 'Selah reminds you 30 minutes before and again at this time.' : 'Selah reminds you at this time.'}</Txt>
       <View style={{ flexDirection: 'row', gap: 10 }}>
-        {g ? <Btn kind="danger" label="Delete" style={{ flex: 1 }} onPress={() => { mutate(s => { s.goals = s.goals.filter(x => x.id !== g.id); }); closeSheet(); toast('Goal deleted'); }} /> : null}
+        {g ? <Btn kind="danger" label={armed ? 'Tap again to delete' : 'Delete'} style={{ flex: 1 }} onPress={() => { if (!armed) { setArmed(true); return; } mutate(s => { s.goals = s.goals.filter(x => x.id !== g.id); }); closeSheet(); toast('Goal deleted'); }} /> : null}
         <Btn kind="primary" label="Save goal" style={{ flex: 1 }} onPress={save} />
       </View>
     </View>

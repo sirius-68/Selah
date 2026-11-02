@@ -86,6 +86,7 @@ function addInbox(list: Ev[], read = false) {
 export function markAllRead() { const cur = inbox(); if (!cur.some(x => !x.read)) return; kvSet(IN, cur.map(x => ({ ...x, read: true }))); emit(); }
 export function removeItem(key: string) { kvSet(IN, inbox().filter(x => x.key !== key)); emit(); }
 export function clearInbox() { kvSet(IN, []); emit(); }
+export function restoreInbox(list: Item[]) { kvSet(IN, list); emit(); }
 /* move everything in the saved plan that has come due into the inbox */
 function collect() {
   const plan = kvGet<Ev[]>(PLAN, []), now = Date.now();

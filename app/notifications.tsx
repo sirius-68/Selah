@@ -4,9 +4,9 @@ import { useStore, mutate } from '@/lib/store';
 import { fmtClockTime, fmtDate, t } from '@/lib/i18n';
 import { dateKey } from '@/lib/util';
 import { chime } from '@/lib/sound';
-import { clearInbox, inbox, Item, markAllRead, notifState, onAlerts, openFrom, openItem, prefs, Prefs, refreshPerm, removeItem, requestPerm, setPref, testReminder, upcoming } from '@/lib/notify';
+import { clearInbox, inbox, Item, markAllRead, notifState, onAlerts, openFrom, openItem, prefs, Prefs, refreshPerm, removeItem, restoreInbox, requestPerm, setPref, testReminder, upcoming } from '@/lib/notify';
 import { router } from 'expo-router';
-import { Page, toast } from '@/ui/overlay';
+import { Page, toast, toastUndo } from '@/ui/overlay';
 import { Btn, LinkBtn, Switch, Txt, useC, tap } from '@/ui/kit';
 import { Icon } from '@/ui/Icon';
 
@@ -33,7 +33,7 @@ export default function Notifications() {
           {!hasAny ? <Btn sm kind="primary" icon="plus" label="Add a quiet time" style={{ alignSelf: 'flex-start', marginTop: 12 }} onPress={() => router.navigate('/(tabs)/goals' as any)} /> : null}
         </View>}
 
-      <Head title="Earlier" right={list.length ? <LinkBtn label="Clear all" onPress={() => { clearInbox(); toast('Notifications cleared'); }} /> : null} />
+      <Head title="Earlier" right={list.length ? <LinkBtn label="Clear all" onPress={() => { const keep = inbox(); clearInbox(); toastUndo('Notifications cleared', () => restoreInbox(keep)); }} /> : null} />
       {!list.length ? <Txt muted size={15.5} lh={1.45}>You are all caught up. Reminders you receive are kept here for 30 days.</Txt> : null}
       {groups.map(([label, xs]) => (
         <View key={label} style={{ marginBottom: 12 }}>

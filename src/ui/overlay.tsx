@@ -8,19 +8,24 @@ import { t } from '../lib/i18n';
 import { IconBtn, Txt, useC, shadow, tap } from './kit';
 
 /* ---------- toast ---------- */
-let toastFn: ((m: string) => void) | null = null;
+let toastFn: ((m: string, undo?: () => void) => void) | null = null;
 export function toast(msg: string) { toastFn && toastFn(t(msg)); }
 /* already-translated message */
 export function toastRaw(msg: string) { toastFn && toastFn(msg); }
+/* a message with an Undo button, for things removed with one tap */
+export function toastUndo(msg: string, undo: () => void) { toastFn && toastFn(t(msg), undo); }
 export function ToastHost() {
   const c = useC(); const ins = useSafeAreaInsets();
-  const [msg, setMsg] = useState(''); const op = useRef(new Animated.Value(0)).current; const tm = useRef<any>(null);
-  useEffect(() => { toastFn = (m: string) => { setMsg(m); clearTimeout(tm.current); Animated.timing(op, { toValue: 1, duration: 160, useNativeDriver: true }).start(); tm.current = setTimeout(() => Animated.timing(op, { toValue: 0, duration: 200, useNativeDriver: true }).start(() => setMsg('')), 2400); }; return () => { toastFn = null; }; }, [op]);
+  const [msg, setMsg] = useState(''); const undoRef = useRef<null | (() => void)>(null); const [hasUndo, setHasUndo] = useState(false);
+  const op = useRef(new Animated.Value(0)).current; const tm = useRef<any>(null);
+  const hide = () => Animated.timing(op, { toValue: 0, duration: 200, useNativeDriver: true }).start(() => { setMsg(''); undoRef.current = null; setHasUndo(false); });
+  useEffect(() => { toastFn = (m: string, undo?: () => void) => { setMsg(m); undoRef.current = undo || null; setHasUndo(!!undo); clearTimeout(tm.current); Animated.timing(op, { toValue: 1, duration: 160, useNativeDriver: true }).start(); tm.current = setTimeout(hide, undo ? 5000 : 2400); }; return () => { toastFn = null; }; }, [op]);
   if (!msg) return null;
   return (
-    <Animated.View pointerEvents="none" accessibilityLiveRegion="polite" style={{ position: 'absolute', left: 0, right: 0, bottom: 92 + ins.bottom, alignItems: 'center', opacity: op, zIndex: 200, transform: [{ translateY: op.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] }}>
-      <View style={{ backgroundColor: c.pill, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 999, maxWidth: '90%', ...shadow(10, 0.3) }}>
-        <Txt w={600} size={14.5} color={c.onPill} center tr={false}>{msg}</Txt>
+    <Animated.View pointerEvents="box-none" accessibilityLiveRegion="polite" style={{ position: 'absolute', left: 0, right: 0, bottom: 92 + ins.bottom, alignItems: 'center', opacity: op, zIndex: 200, transform: [{ translateY: op.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] }}>
+      <View pointerEvents={hasUndo ? 'auto' : 'none'} style={{ flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: c.pill, paddingLeft: 20, paddingRight: hasUndo ? 8 : 20, paddingVertical: hasUndo ? 6 : 12, borderRadius: 999, maxWidth: '90%', ...shadow(10, 0.3) }}>
+        <Txt w={600} size={14.5} color={c.onPill} center tr={false} style={{ flexShrink: 1 }}>{msg}</Txt>
+        {hasUndo ? <Pressable accessibilityRole="button" onPress={() => { tap(); const f = undoRef.current; clearTimeout(tm.current); hide(); if (f) f(); }} style={{ minHeight: 40, paddingHorizontal: 16, borderRadius: 999, backgroundColor: c.onPill, justifyContent: 'center' }}><Txt w={700} size={14} color={c.pill}>Undo</Txt></Pressable> : null}
       </View>
     </Animated.View>
   );
